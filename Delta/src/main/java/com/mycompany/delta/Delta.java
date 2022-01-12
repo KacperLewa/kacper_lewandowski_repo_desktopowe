@@ -53,52 +53,70 @@ public class Delta extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
         jLA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLA.setForeground(new java.awt.Color(153, 102, 255));
         jLA.setText("Podaj a:");
 
         jLB.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLB.setForeground(new java.awt.Color(153, 102, 255));
         jLB.setText("Podaj b:");
 
         jLC.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLC.setForeground(new java.awt.Color(153, 102, 255));
         jLC.setText("Podaj c:");
 
         jLD.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLD.setForeground(new java.awt.Color(153, 102, 255));
         jLD.setText("Delta:");
 
         jL0.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        jL0.setForeground(new java.awt.Color(153, 102, 255));
         jL0.setText("Miejsca zerowe:");
 
         jLW.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        jLW.setForeground(new java.awt.Color(153, 102, 255));
         jLW.setText("Współrzędne wierzchołka:");
 
         jLZW.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        jLZW.setForeground(new java.awt.Color(153, 102, 255));
         jLZW.setText("Zbiór wartości:");
 
         jLAA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLAA.setForeground(new java.awt.Color(153, 102, 255));
         jLAA.setText("???");
 
         jLBA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLBA.setForeground(new java.awt.Color(153, 102, 255));
         jLBA.setText("???");
 
         jLCA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLCA.setForeground(new java.awt.Color(153, 102, 255));
         jLCA.setText("???");
 
         jLDA.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLDA.setForeground(new java.awt.Color(153, 102, 255));
         jLDA.setText("???");
 
         jL0A1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jL0A1.setForeground(new java.awt.Color(153, 102, 255));
         jL0A1.setText("???");
 
         jL0A2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jL0A2.setForeground(new java.awt.Color(153, 102, 255));
         jL0A2.setText("???");
 
         jLWA1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLWA1.setForeground(new java.awt.Color(153, 102, 255));
         jLWA1.setText("???");
 
         jLWA2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLWA2.setForeground(new java.awt.Color(153, 102, 255));
         jLWA2.setText("???");
 
         jLZWA.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        jLZWA.setForeground(new java.awt.Color(153, 102, 255));
         jLZWA.setText("???");
         jLZWA.setToolTipText("");
 

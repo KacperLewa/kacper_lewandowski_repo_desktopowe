@@ -4,15 +4,17 @@
  * and open the template in the editor.
  */
 package com.mycompany.projektzapisodczyt;
-package net.codejava.io;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.logging.Logger;
+import java.util.logging.*;
+import java.util.Scanner;
 
 /**
  *
@@ -24,7 +26,9 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
      * Creates new form ProjektZapisOdczyt
      */
     public ProjektZapisOdczyt() {
+        
         initComponents();
+        f = new File("kacper_lewandowski.txt");
     }
 
     /**
@@ -120,6 +124,11 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         jBRead.setBackground(new java.awt.Color(0, 51, 51));
         jBRead.setForeground(new java.awt.Color(255, 0, 204));
         jBRead.setText("Wczytaj dane");
+        jBRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBReadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,10 +238,24 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
             bufferedWriter.write(subject);
             bufferedWriter.write(grades);
             bufferedWriter.close();
-        } catch (IOException e) {
-            Logger.getLogger(ProjektZapisOdczyt);
+        } catch (IOException ex) {
+            Logger.getLogger(ProjektZapisOdczyt.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jBWriteActionPerformed
+
+    private void jBReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReadActionPerformed
+        try{
+            Scanner sc = new Scanner("kacper_lewandowski.txt");
+            String data = "";
+            while(sc.hasNext())
+            {
+                data += sc.nextLine()+"\n";
+            }
+            jTADataToStore.setText(data);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ProjektZapisOdczyt.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jBReadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,6 +289,7 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
             public void run() {
                 new ProjektZapisOdczyt().setVisible(true);
             }
+            File f;
         });
     }
 

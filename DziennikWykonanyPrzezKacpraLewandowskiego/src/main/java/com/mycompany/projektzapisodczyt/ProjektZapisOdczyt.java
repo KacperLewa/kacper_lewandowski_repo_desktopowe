@@ -9,6 +9,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.logging.Logger;
 
 /**
  *
@@ -53,7 +57,6 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         setTitle("Dziennik wykonany przez Kacper Lewandowski");
         setMaximumSize(new java.awt.Dimension(600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
         setSize(new java.awt.Dimension(600, 400));
 
@@ -146,12 +149,12 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addComponent(jBRead)
                         .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,9 +168,6 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
                     .addComponent(jBRead))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(73, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -185,8 +185,11 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jSGrades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBWrite)
-                        .addGap(50, 50, 50))))
+                        .addComponent(jBWrite))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 9, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,7 +218,20 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         Object subjectItem = jCBSubject.getSelectedItem();
         String subject = subjectItem.toString();
         int gradesNum = jSGrades.getValue();
-        String grades = String.valueOf(gradesNum);  
+        String grades = String.valueOf(gradesNum);
+        try{
+            FileWriter writer = new FileWriter("kacper_lewandowski.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            bufferedWriter.write(name);
+            bufferedWriter.write(surname);
+            bufferedWriter.write(klasa);
+            bufferedWriter.write(subject);
+            bufferedWriter.write(grades);
+            bufferedWriter.close();
+        } catch (IOException e) {
+            Logger.getLogger(ProjektZapisOdczyt);
+        }
     }//GEN-LAST:event_jBWriteActionPerformed
 
     /**

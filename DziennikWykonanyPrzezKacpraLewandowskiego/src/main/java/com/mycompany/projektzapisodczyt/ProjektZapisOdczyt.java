@@ -229,15 +229,13 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         int gradesNum = jSGrades.getValue();
         String grades = String.valueOf(gradesNum);
         try{
-            FileWriter writer = new FileWriter("kacper_lewandowski.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            
-            bufferedWriter.write(name);
-            bufferedWriter.write(surname);
-            bufferedWriter.write(klasa);
-            bufferedWriter.write(subject);
-            bufferedWriter.write(grades);
-            bufferedWriter.close();
+            FileWriter fw = new FileWriter(f);
+            fw.write(name+"");
+            fw.write(surname);
+            fw.write(klasa);
+            fw.write(subject);
+            fw.write(grades);
+            fw.close();
         } catch (IOException ex) {
             Logger.getLogger(ProjektZapisOdczyt.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -245,7 +243,7 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
 
     private void jBReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBReadActionPerformed
         try{
-            Scanner sc = new Scanner("kacper_lewandowski.txt");
+            Scanner sc = new Scanner(f);
             String data = "";
             while(sc.hasNext())
             {
@@ -255,6 +253,7 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ProjektZapisOdczyt.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_jBReadActionPerformed
 
     /**
@@ -292,7 +291,7 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
             File f;
         });
     }
-
+File f;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBRead;
     private javax.swing.JButton jBWrite;

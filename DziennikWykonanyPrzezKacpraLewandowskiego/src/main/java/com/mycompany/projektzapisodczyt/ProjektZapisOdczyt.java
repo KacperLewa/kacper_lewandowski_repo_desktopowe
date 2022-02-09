@@ -5,13 +5,10 @@
  */
 package com.mycompany.projektzapisodczyt;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.logging.*;
 import java.util.Scanner;
@@ -229,12 +226,12 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         int gradesNum = jSGrades.getValue();
         String grades = String.valueOf(gradesNum);
         try{
-            FileWriter fw = new FileWriter(f);
-            fw.write(name+"");
-            fw.write(surname);
-            fw.write(klasa);
-            fw.write(subject);
-            fw.write(grades);
+            FileWriter fw = new FileWriter(f, true);
+            fw.write(name+";");
+            fw.write(surname+";");
+            fw.write(klasa+";");
+            fw.write(subject+";");
+            fw.write(grades+";"+"\n");
             fw.close();
         } catch (IOException ex) {
             Logger.getLogger(ProjektZapisOdczyt.class.getName()).log(Level.SEVERE, null, ex);
@@ -288,8 +285,9 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
             public void run() {
                 new ProjektZapisOdczyt().setVisible(true);
             }
-            File f;
+            
         });
+        
     }
 File f;
     // Variables declaration - do not modify//GEN-BEGIN:variables

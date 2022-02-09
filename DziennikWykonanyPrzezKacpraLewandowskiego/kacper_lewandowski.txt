@@ -1,1 +1,4 @@
-JanKowalski1GTNMatematyka2
+Kacper;Lewandowski;1CTN;Fizyka;4;Jan;Kowalski;1CTN;Chemia;2;
+Jan;Kopeæ;1GTN;Matematyka;3;
+Damian;Kochañski;1GTN;Fizyka;1;
+Konrad;Mickiewicz;1PTN;Biologia;6;

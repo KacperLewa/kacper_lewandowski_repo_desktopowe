@@ -1,4 +1,4 @@
-Kacper;Lewandowski;1CTN;Fizyka;4;Jan;Kowalski;1CTN;Chemia;2;
-Jan;Kopeæ;1GTN;Matematyka;3;
-Damian;Kochañski;1GTN;Fizyka;1;
-Konrad;Mickiewicz;1PTN;Biologia;6;
+a;s;1PTN;Matematyka;6;
+e;g;1GTN;Chemia;3;
+y;u;1CTN;Fizyka;1;
+Kacper;Lewandowski;1GTN;Fizyka;3;

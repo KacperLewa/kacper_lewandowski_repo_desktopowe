@@ -242,9 +242,8 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         try{
             Scanner sc = new Scanner(f);
             String data = "";
-            while(sc.hasNext())
-            {
-                data += sc.nextLine()+"\n";
+            while(sc.hasNext()){
+                data += sc.nextLine()+System.lineSeparator();
             }
             jTADataToStore.setText(data);
         } catch (FileNotFoundException ex) {
@@ -289,7 +288,7 @@ public class ProjektZapisOdczyt extends javax.swing.JFrame {
         });
         
     }
-File f;
+    File f;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBRead;
     private javax.swing.JButton jBWrite;

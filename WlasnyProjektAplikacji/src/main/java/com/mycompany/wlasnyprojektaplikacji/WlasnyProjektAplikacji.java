@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.util.logging.*;
 import java.util.Scanner;
 import java.awt.Font;
+import java.awt.*;
 
 /**
  *
@@ -66,10 +67,14 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         jMIZamknij = new javax.swing.JMenuItem();
         jMEdycja = new javax.swing.JMenu();
         jMCzcionka = new javax.swing.JMenu();
-        jMFreeMono = new javax.swing.JMenuItem();
-        jMZ003 = new javax.swing.JMenuItem();
-        jMSarai = new javax.swing.JMenuItem();
-        jMITlo = new javax.swing.JMenuItem();
+        jMHelvetica = new javax.swing.JMenuItem();
+        jMCourier = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMTlo = new javax.swing.JMenu();
+        jMIRed = new javax.swing.JMenuItem();
+        jMIBlue = new javax.swing.JMenuItem();
+        jMIYellow = new javax.swing.JMenuItem();
+        jMiCyan = new javax.swing.JMenuItem();
         jMOProgramie = new javax.swing.JMenu();
         jMIProgram = new javax.swing.JMenuItem();
         jMIHelp = new javax.swing.JMenuItem();
@@ -83,7 +88,7 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
         jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -91,7 +96,7 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Podaj płeć:");
 
-        jRBMan.setBackground(new java.awt.Color(51, 204, 255));
+        jRBMan.setBackground(new java.awt.Color(0, 255, 255));
         buttonGroup1.add(jRBMan);
         jRBMan.setText("Mężczyzna");
         jRBMan.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +105,7 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
             }
         });
 
-        jRBWoman.setBackground(new java.awt.Color(51, 204, 255));
+        jRBWoman.setBackground(new java.awt.Color(0, 255, 255));
         buttonGroup1.add(jRBWoman);
         jRBWoman.setText("Kobieta");
 
@@ -296,30 +301,78 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
 
         jMCzcionka.setText("Zmień czcionkę");
 
-        jMFreeMono.setText("FreeMono");
-        jMFreeMono.addActionListener(new java.awt.event.ActionListener() {
+        jMHelvetica.setText("Helvetica");
+        jMHelvetica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMFreeMonoActionPerformed(evt);
+                jMHelveticaActionPerformed(evt);
             }
         });
-        jMCzcionka.add(jMFreeMono);
+        jMCzcionka.add(jMHelvetica);
 
-        jMZ003.setText("Z003");
-        jMCzcionka.add(jMZ003);
+        jMCourier.setText("Courier");
+        jMCourier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMCourierActionPerformed(evt);
+            }
+        });
+        jMCzcionka.add(jMCourier);
 
-        jMSarai.setText("Sarai");
-        jMCzcionka.add(jMSarai);
+        jMenuItem1.setText("Podstawowy");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMCzcionka.add(jMenuItem1);
 
         jMEdycja.add(jMCzcionka);
 
-        jMITlo.setText("Zmień tło");
-        jMEdycja.add(jMITlo);
+        jMTlo.setText("Zmień tło");
+
+        jMIRed.setText("Czerwony");
+        jMIRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIRedActionPerformed(evt);
+            }
+        });
+        jMTlo.add(jMIRed);
+
+        jMIBlue.setText("Niebieski");
+        jMIBlue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIBlueActionPerformed(evt);
+            }
+        });
+        jMTlo.add(jMIBlue);
+
+        jMIYellow.setText("Żółty");
+        jMIYellow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIYellowActionPerformed(evt);
+            }
+        });
+        jMTlo.add(jMIYellow);
+
+        jMiCyan.setText("Podstawowe");
+        jMiCyan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMiCyanActionPerformed(evt);
+            }
+        });
+        jMTlo.add(jMiCyan);
+
+        jMEdycja.add(jMTlo);
 
         jMenuBar1.add(jMEdycja);
 
         jMOProgramie.setText("O programie");
 
         jMIProgram.setText("O programie");
+        jMIProgram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIProgramActionPerformed(evt);
+            }
+        });
         jMOProgramie.add(jMIProgram);
 
         jMIHelp.setText("Help");
@@ -417,11 +470,11 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMIZamknijActionPerformed
 
-    private void jMFreeMonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMFreeMonoActionPerformed
-        Font a = new Font("sarai", Font.BOLD, 14);
-        Font b = new Font("sarai", Font.BOLD, 18);
-        Font c = new Font("sarai", Font.BOLD, 24);
-        Font d = new Font("sarai", Font.BOLD, 11);
+    private void jMHelveticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMHelveticaActionPerformed
+        Font a = new Font("Z003", Font.BOLD, 14);
+        Font b = new Font("Z003", Font.BOLD, 18);
+        Font c = new Font("Z003", Font.BOLD, 24);
+        Font d = new Font("Z003", Font.BOLD, 11);
         jLabel1.setFont(a);
         jLabel2.setFont(a);
         jLabel3.setFont(a);
@@ -433,7 +486,84 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         jRBMan.setFont(d);
         jRBWoman.setFont(d);
         jTFWeight.setFont(d);
-    }//GEN-LAST:event_jMFreeMonoActionPerformed
+        jTFAge.setFont(d);
+        jTFHeight.setFont(d);
+        jTFPAL.setFont(d);
+        jBCalculate.setFont(d);
+        jBWrite.setFont(d);
+        jBRead.setFont(d);
+        jTAHistory.setFont(d);
+    }//GEN-LAST:event_jMHelveticaActionPerformed
+
+    private void jMCourierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMCourierActionPerformed
+        Font a = new Font("courier", Font.BOLD, 14);
+        Font b = new Font("courier", Font.BOLD, 18);
+        Font c = new Font("courier", Font.BOLD, 24);
+        Font d = new Font("courier", Font.BOLD, 11);
+        jLabel1.setFont(a);
+        jLabel2.setFont(a);
+        jLabel3.setFont(a);
+        jLabel5.setFont(a);
+        jLabel6.setFont(a);
+        jLabel7.setFont(b);
+        jLabel9.setFont(c);
+        jLBMR.setFont(c);
+        jRBMan.setFont(d);
+        jRBWoman.setFont(d);
+        jTFWeight.setFont(d);
+        jTFAge.setFont(d);
+        jTFHeight.setFont(d);
+        jTFPAL.setFont(d);
+        jBCalculate.setFont(d);
+        jBWrite.setFont(d);
+        jBRead.setFont(d);
+        jTAHistory.setFont(d);
+    }//GEN-LAST:event_jMCourierActionPerformed
+
+    private void jMIRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRedActionPerformed
+        jPanel1.setBackground(Color.red);
+    }//GEN-LAST:event_jMIRedActionPerformed
+
+    private void jMIBlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBlueActionPerformed
+        jPanel1.setBackground(Color.blue);
+    }//GEN-LAST:event_jMIBlueActionPerformed
+
+    private void jMIYellowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIYellowActionPerformed
+        jPanel1.setBackground(Color.yellow);
+    }//GEN-LAST:event_jMIYellowActionPerformed
+
+    private void jMiCyanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMiCyanActionPerformed
+        jPanel1.setBackground(Color.cyan);
+    }//GEN-LAST:event_jMiCyanActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Font a = new Font("dialog", Font.BOLD, 14);
+        Font b = new Font("dialog", Font.BOLD, 18);
+        Font c = new Font("dialog", Font.BOLD, 24);
+        Font d = new Font("dialog", Font.BOLD, 11);
+        jLabel1.setFont(a);
+        jLabel2.setFont(a);
+        jLabel3.setFont(a);
+        jLabel5.setFont(a);
+        jLabel6.setFont(a);
+        jLabel7.setFont(b);
+        jLabel9.setFont(c);
+        jLBMR.setFont(c);
+        jRBMan.setFont(d);
+        jRBWoman.setFont(d);
+        jTFWeight.setFont(d);
+        jTFAge.setFont(d);
+        jTFHeight.setFont(d);
+        jTFPAL.setFont(d);
+        jBCalculate.setFont(d);
+        jBWrite.setFont(d);
+        jBRead.setFont(d);
+        jTAHistory.setFont(d);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMIProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIProgramActionPerformed
+        
+    }//GEN-LAST:event_jMIProgramActionPerformed
 
     /**
      * @param args the command line arguments
@@ -484,21 +614,25 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMCourier;
     private javax.swing.JMenu jMCzcionka;
     private javax.swing.JMenu jMEdycja;
-    private javax.swing.JMenuItem jMFreeMono;
+    private javax.swing.JMenuItem jMHelvetica;
+    private javax.swing.JMenuItem jMIBlue;
     private javax.swing.JMenuItem jMIHelp;
     private javax.swing.JMenuItem jMIProgram;
-    private javax.swing.JMenuItem jMITlo;
+    private javax.swing.JMenuItem jMIRed;
     private javax.swing.JMenuItem jMIWczytaj;
+    private javax.swing.JMenuItem jMIYellow;
     private javax.swing.JMenuItem jMIZamknij;
     private javax.swing.JMenuItem jMIZapisz;
     private javax.swing.JMenu jMOProgramie;
     private javax.swing.JMenu jMPlik;
-    private javax.swing.JMenuItem jMSarai;
-    private javax.swing.JMenuItem jMZ003;
+    private javax.swing.JMenu jMTlo;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMiCyan;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRBMan;
     private javax.swing.JRadioButton jRBWoman;

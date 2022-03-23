@@ -12,12 +12,8 @@ import java.io.FileWriter;
 import java.util.logging.*;
 import java.util.Scanner;
 import java.awt.Font;
-<<<<<<< HEAD
-import java.awt.*;
 import javax.swing.*;
-=======
 import java.awt.Color;
->>>>>>> cc2080ceaf58a3e6fc545c69e4f2f31a0335c466
 
 /**
  *

@@ -13,6 +13,7 @@ import java.util.logging.*;
 import java.util.Scanner;
 import java.awt.Font;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -83,9 +84,7 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kalkulator zapotrzebowania kalorycznego");
-        setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 255));
@@ -376,6 +375,11 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         jMOProgramie.add(jMIProgram);
 
         jMIHelp.setText("Help");
+        jMIHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIHelpActionPerformed(evt);
+            }
+        });
         jMOProgramie.add(jMIHelp);
 
         jMenuBar1.add(jMOProgramie);
@@ -442,11 +446,11 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
         try{
             FileWriter fw = new FileWriter(f, true);
             fw.write("Twój wynik:"+"\n");
-            fw.write(weight+" cm"+"\n");
-            fw.write(age+"\n");
-            fw.write(height+" kg"+"\n");
-            fw.write(pal+"\n");
-            fw.write(bmr+"\n");
+            fw.write("Waga: "+weight+" kg"+"\n");
+            fw.write("Wiek: "+age+"\n");
+            fw.write("Wzrost: "+height+" cm"+"\n");
+            fw.write("PAL: "+pal+"\n");
+            fw.write("BMR: "+bmr+"\n");
             fw.close();
         } catch (IOException ex) {
             Logger.getLogger(WlasnyProjektAplikacji.class.getName()).log(Level.SEVERE, null, ex);
@@ -562,8 +566,16 @@ public class WlasnyProjektAplikacji extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMIProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIProgramActionPerformed
-        
+       JOptionPane.showMessageDialog(this, "Autor programu: Kacper Lewandowski");
     }//GEN-LAST:event_jMIProgramActionPerformed
+
+    private void jMIHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIHelpActionPerformed
+        JOptionPane.showMessageDialog(this, "1,1 – 1,2 – bardzo niska aktywność, praca siedząca, brak treningów;\n" +
+"1,3 – 1,4 – niska aktywność, praca siedząca, do 3 lekkich treningów w tygodniu;\n" +
+"1,5 – 1,7 – umiarkowana aktywność, praca siedząca, do 4 treningów w tygodniu lub praca fizyczna bez treningów;\n" +
+"1,8 – 1,9 – wysoka aktywność – praca fizyczna, do 4 treningów w tygodniu;\n" +
+"2,0 – 2,4 – zawodowe uprawianie sportu.");
+    }//GEN-LAST:event_jMIHelpActionPerformed
 
     /**
      * @param args the command line arguments

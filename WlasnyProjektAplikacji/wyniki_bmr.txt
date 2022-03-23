@@ -1,0 +1,6 @@
+Twój wynik:
+Waga: 90 kg
+Wiek: 43
+Wzrost: 160 cm
+PAL: 1.2
+BMR: 1748.1200000000001kcal

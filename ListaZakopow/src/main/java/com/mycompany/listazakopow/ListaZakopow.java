@@ -4,6 +4,8 @@
  */
 package com.mycompany.listazakopow;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  *
  * @author lewandowskikacper
@@ -15,7 +17,53 @@ public class ListaZakopow extends javax.swing.JFrame {
      */
     public ListaZakopow() {
         initComponents();
+        
+        jTFShop.addKeyListener(new KeyListener(){
+        @Override
+        public void keyTyped(KeyEvent ke){
+      
     }
+        @Override
+        public void keyPressed(KeyEvent ke){
+        char sign = ke.getKeyChar();
+        if (sign >= 'A' && sign <= 'z' 
+                || sign == KeyEvent.VK_SPACE
+                || sign == KeyEvent.VK_BACK_SPACE){
+            String s = jTFShop.getText();
+            System.out.println("keyPressed: "+s);
+        } else {
+            jTFShop.setEditable(false);
+        }
+    }
+        @Override
+        public void keyReleased(KeyEvent ke){
+        jTFShop.setEditable(true);
+    }
+    });
+        
+        jTFValue.addKeyListener(new KeyListener(){
+        @Override
+        public void keyTyped(KeyEvent ke){
+      
+    }
+        @Override
+        public void keyPressed(KeyEvent ke){
+        char sign = ke.getKeyChar();
+        if (sign >= '0' && sign <= '9' 
+                || sign == KeyEvent.VK_BACK_SPACE){
+            String s = jTFShop.getText();
+            System.out.println("keyPressed: "+s);
+        } else {
+            jTFValue.setEditable(false);
+        }
+    }
+        @Override
+        public void keyReleased(KeyEvent ke){
+        jTFValue.setEditable(true);
+    }
+    });
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,7 +120,13 @@ public class ListaZakopow extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 204, 255));
         jLabel4.setText("Data zakupu");
 
-        jCBType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jTFShop.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFShopKeyPressed(evt);
+            }
+        });
+
+        jCBType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "żywność", "chemia", "odzież", "RTV/AGD" }));
 
         jTFDate.setMaximumSize(new java.awt.Dimension(82, 23));
         jTFDate.setMinimumSize(new java.awt.Dimension(82, 23));
@@ -90,6 +144,11 @@ public class ListaZakopow extends javax.swing.JFrame {
         jBSave.setForeground(new java.awt.Color(255, 204, 204));
         jBSave.setText("Zapisz");
         jBSave.setBorder(null);
+        jBSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSaveActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 204, 255));
@@ -225,6 +284,14 @@ public class ListaZakopow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFWeekActionPerformed
 
+    private void jTFShopKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFShopKeyPressed
+        
+    }//GEN-LAST:event_jTFShopKeyPressed
+
+    private void jBSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,7 +325,10 @@ public class ListaZakopow extends javax.swing.JFrame {
                 new ListaZakopow().setVisible(true);
             }
         });
+        
+        
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSave;

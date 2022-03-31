@@ -6,6 +6,12 @@ package com.mycompany.listazakopow;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.util.logging.*;
+import java.util.Scanner;
 /**
  *
  * @author lewandowskikacper
@@ -17,6 +23,8 @@ public class ListaZakopow extends javax.swing.JFrame {
      */
     public ListaZakopow() {
         initComponents();
+        
+        f = new File("zakupy.txt");
         
         jTFShop.addKeyListener(new KeyListener(){
         @Override
@@ -289,7 +297,27 @@ public class ListaZakopow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFShopKeyPressed
 
     private void jBSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSaveActionPerformed
-        // TODO add your handling code here:
+        String shop = jTFShop.getText();
+        String value = jTFValue.getText();
+        String type = jCBType.getSelectedItem().toString();
+        String date = jTFDate.getText();
+        try{
+            FileWriter fw = new FileWriter(f, true);
+            fw.write(shop+"  "+value+"  "+type+"  "+date);
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ListaZakopow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try{
+            Scanner sc = new Scanner(f);
+            String data = "";
+            while(sc.hasNext()){
+                data += sc.nextLine()+System.lineSeparator();
+            }
+            jTAShopping.setText(data);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ListaZakopow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBSaveActionPerformed
 
     /**
@@ -328,7 +356,7 @@ public class ListaZakopow extends javax.swing.JFrame {
         
         
     }
-    
+    File f;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSave;

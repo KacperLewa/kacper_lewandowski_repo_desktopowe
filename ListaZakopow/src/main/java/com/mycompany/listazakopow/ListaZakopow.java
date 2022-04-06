@@ -34,9 +34,10 @@ public class ListaZakopow extends javax.swing.JFrame {
         @Override
         public void keyPressed(KeyEvent ke){
         char sign = ke.getKeyChar();
-        if (sign >= 'A' && sign <= 'z' 
+        if (sign >= 'A' && sign <= 'Z' 
                 || sign == KeyEvent.VK_SPACE
-                || sign == KeyEvent.VK_BACK_SPACE){
+                || sign == KeyEvent.VK_BACK_SPACE
+                || sign >= 'a' && sign <= 'z'){
             String s = jTFShop.getText();
             System.out.println("keyPressed: "+s);
         } else {
@@ -70,6 +71,7 @@ public class ListaZakopow extends javax.swing.JFrame {
         jTFValue.setEditable(true);
     }
     });
+        
     }
     
 
@@ -303,7 +305,7 @@ public class ListaZakopow extends javax.swing.JFrame {
         String date = jTFDate.getText();
         try{
             FileWriter fw = new FileWriter(f, true);
-            fw.write(shop+"  "+value+"  "+type+"  "+date);
+            fw.write(shop+" "+value+" "+type+" "+date+"\n");
             fw.close();
         } catch (IOException ex) {
             Logger.getLogger(ListaZakopow.class.getName()).log(Level.SEVERE, null, ex);

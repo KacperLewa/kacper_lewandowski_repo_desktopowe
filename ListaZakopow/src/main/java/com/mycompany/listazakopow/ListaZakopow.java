@@ -38,8 +38,7 @@ public class ListaZakopow extends javax.swing.JFrame {
                 || sign == KeyEvent.VK_SPACE
                 || sign == KeyEvent.VK_BACK_SPACE
                 || sign >= 'a' && sign <= 'z'){
-            String s = jTFShop.getText();
-            System.out.println("keyPressed: "+s);
+            
         } else {
             jTFShop.setEditable(false);
         }
@@ -60,8 +59,7 @@ public class ListaZakopow extends javax.swing.JFrame {
         char sign = ke.getKeyChar();
         if (sign >= '0' && sign <= '9' 
                 || sign == KeyEvent.VK_BACK_SPACE){
-            String s = jTFShop.getText();
-            System.out.println("keyPressed: "+s);
+            
         } else {
             jTFValue.setEditable(false);
         }

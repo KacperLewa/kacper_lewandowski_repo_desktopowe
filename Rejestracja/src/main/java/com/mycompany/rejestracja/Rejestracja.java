@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.logging.*;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lewandowskikacper
@@ -131,6 +132,7 @@ public class Rejestracja extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPFPassword2 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 380));
@@ -271,6 +273,13 @@ public class Rejestracja extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jButton2.setText("Zaloguj");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Złe dane");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -286,8 +295,9 @@ public class Rejestracja extends javax.swing.JFrame {
                             .addComponent(jButton2)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 400, Short.MAX_VALUE)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 300, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -301,11 +311,13 @@ public class Rejestracja extends javax.swing.JFrame {
                 .addComponent(jTFEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPFPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Logowanie", jPanel2);
@@ -339,8 +351,11 @@ public class Rejestracja extends javax.swing.JFrame {
         } else {
             jLError1.setText("*Dopuszczalna liczba znaków to od 2 do 20 ");
         }
-        if(e.contains("@")){
-            
+        if(e.matches("[A-z](.*)@[A-z](.*)[.][A-z](.*)")){
+            g=g+1;
+            jLError2.setText("");
+        } else {
+            jLError2.setText("Źle podałeś email ");
         }
         if(d2 >= 4){
             g=g+1;
@@ -364,6 +379,25 @@ public class Rejestracja extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String e2 = jTFEmail2.getText();
+        String p2 = jPFPassword2.getText();
+        String u = jTFUser.getText();
+        try{
+            Scanner sc = new Scanner(f);
+            String data = "";
+            while(sc.hasNext()){
+                data += sc.nextLine()+System.lineSeparator();
+            }
+            if(data.contains(e2) && data.contains(p2)){
+                jLabel9.setText("");
+                JOptionPane.showMessageDialog(this, "Witaj: "+u);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,6 +450,7 @@ public class Rejestracja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPFConPassword;
     private javax.swing.JPasswordField jPFPassword;
     private javax.swing.JPasswordField jPFPassword2;

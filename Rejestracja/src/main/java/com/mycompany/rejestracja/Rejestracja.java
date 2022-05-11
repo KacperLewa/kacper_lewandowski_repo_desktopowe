@@ -27,6 +27,9 @@ public class Rejestracja extends javax.swing.JFrame {
         
         f = new File("sekretnehasla.csv");
         
+        Zapisz z = new Zapisz();
+        
+        
         jTFUser.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -89,13 +92,36 @@ public class Rejestracja extends javax.swing.JFrame {
                         || sign == KeyEvent.VK_BACK_SPACE){
                     
                 } else {
-                    jPFPassword.setEditable(false);
+                    jTFEmail.setEditable(false);
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                jPFPassword.setEditable(true);
+                jTFEmail.setEditable(true);
+            }
+        });
+        
+        jPFConPassword.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                char sign = e.getKeyChar();
+                if (sign >= 'A' && sign <= 'z'
+                        || sign >= '0' && sign <= '9'
+                        || sign == KeyEvent.VK_BACK_SPACE){
+                    
+                } else {
+                    jPFConPassword.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jPFConPassword.setEditable(true);
             }
         });
     }
@@ -132,7 +158,7 @@ public class Rejestracja extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPFPassword2 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jLError5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 380));
@@ -279,7 +305,8 @@ public class Rejestracja extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Złe dane");
+        jLError5.setFont(new java.awt.Font("sansserif", 2, 18)); // NOI18N
+        jLError5.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -296,7 +323,7 @@ public class Rejestracja extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLError5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 300, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -311,13 +338,13 @@ public class Rejestracja extends javax.swing.JFrame {
                 .addComponent(jTFEmail2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jPFPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPFPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addComponent(jLError5)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Logowanie", jPanel2);
@@ -339,8 +366,8 @@ public class Rejestracja extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String u = jTFUser.getText();
         String e = jTFEmail.getText();
-        String p = jPFPassword.getText();
-        String cp = jPFConPassword.getText();
+        String p = new String (jPFPassword.getPassword());
+        String cp = new String (jPFConPassword.getPassword());
         int d = u.length();
         int d2 = p.length();
         int g = 0;
@@ -349,50 +376,46 @@ public class Rejestracja extends javax.swing.JFrame {
             g=g+1;
             jLError1.setText("");
         } else {
-            jLError1.setText("*Dopuszczalna liczba znaków to od 2 do 20 ");
+            jLError1.setText("*Dopuszczalna liczba znaków to od 2 do 20! ");
         }
         if(e.matches("[A-z](.*)@[A-z](.*)[.][A-z](.*)")){
             g=g+1;
             jLError2.setText("");
         } else {
-            jLError2.setText("Źle podałeś email ");
+            jLError2.setText("Źle podałeś email! ");
         }
         if(d2 >= 4){
             g=g+1;
             jLError3.setText("");
         } else {
-            jLError3.setText("*Hasło musi mieć minimum 4 znaki ");
+            jLError3.setText("*Hasło musi mieć minimum 4 znaki! ");
         }
         if(p.equals(cp)){
             g=g+1;
             jLError4.setText("");
         } else {
-            jLError4.setText("*Podałeś złe hasło ");
+            jLError4.setText("*Podałeś złe hasło! ");
         }
         if(g==4){
-            try {
-            FileWriter fw = new FileWriter(f);
-            fw.write(u+":"+e+":"+p+"\n");
-            fw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            z.zapisz(u, e, p);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String e2 = jTFEmail2.getText();
-        String p2 = jPFPassword2.getText();
+        String p2 = new String (jPFPassword2.getPassword());
         String u = jTFUser.getText();
         try{
             Scanner sc = new Scanner(f);
             String data = "";
             while(sc.hasNext()){
-                data += sc.nextLine()+System.lineSeparator();
+                data += sc.nextLine()+System.lineSeparator();  
             }
-            if(data.contains(e2) && data.contains(p2)){
-                jLabel9.setText("");
+            if(data.contains(e2+":"+p2)){
+                jLError5.setText("");
                 JOptionPane.showMessageDialog(this, "Witaj: "+u);
+            } else {
+                jLError5.setText("*Podałeś złe dane! ");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
@@ -434,6 +457,7 @@ public class Rejestracja extends javax.swing.JFrame {
         });
     }
     File f;
+    Zapisz z = new Zapisz();;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -442,6 +466,7 @@ public class Rejestracja extends javax.swing.JFrame {
     private javax.swing.JLabel jLError2;
     private javax.swing.JLabel jLError3;
     private javax.swing.JLabel jLError4;
+    private javax.swing.JLabel jLError5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -450,7 +475,6 @@ public class Rejestracja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPFConPassword;
     private javax.swing.JPasswordField jPFPassword;
     private javax.swing.JPasswordField jPFPassword2;

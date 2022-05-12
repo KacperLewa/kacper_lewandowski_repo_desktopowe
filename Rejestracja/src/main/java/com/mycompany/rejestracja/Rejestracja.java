@@ -6,12 +6,7 @@ package com.mycompany.rejestracja;
 
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.util.logging.*;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 /**
  *
@@ -405,21 +400,14 @@ public class Rejestracja extends javax.swing.JFrame {
         String e2 = jTFEmail2.getText();
         String p2 = new String (jPFPassword2.getPassword());
         String u = jTFUser.getText();
-        try{
-            Scanner sc = new Scanner(f);
-            String data = "";
-            while(sc.hasNext()){
-                data += sc.nextLine()+System.lineSeparator();  
-            }
-            if(data.contains(e2+":"+p2)){
+        z.odczyt(e2, p2, u);
+        
+        if(data.contains(e2+":"+p2)){
                 jLError5.setText("");
                 JOptionPane.showMessageDialog(this, "Witaj: "+u);
             } else {
                 jLError5.setText("*Podałeś złe dane! ");
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

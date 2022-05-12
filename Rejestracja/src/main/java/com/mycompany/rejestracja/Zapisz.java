@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author lewandowskikacper
  */
 class Zapisz {
+    private int s;
     File f = new File("sekretnehasla.csv");
      public void zapisz(String a, String b, String c){
          try {
@@ -28,18 +29,18 @@ class Zapisz {
             Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
         }   
      }
-     public void odczyt(){
+     public void odczyt(String a, String b, String c){
          try{
             Scanner sc = new Scanner(f);
             String data = "";
             while(sc.hasNext()){
                 data += sc.nextLine()+System.lineSeparator();  
             }
-            if(data.contains(e2+":"+p2)){
-                jLError5.setText("");
-                JOptionPane.showMessageDialog(this, "Witaj: "+u);
+            if(data.contains(a+":"+b)){
+                
+                this.s=1;
             } else {
-                jLError5.setText("*Podałeś złe dane! ");
+                this.s=2;
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);

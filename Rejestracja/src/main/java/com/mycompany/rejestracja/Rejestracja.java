@@ -401,8 +401,12 @@ public class Rejestracja extends javax.swing.JFrame {
         String p2 = new String (jPFPassword2.getPassword());
         String u = jTFUser.getText();
         z.odczyt(e2, p2, u);
+        int s = z.getData();
+        if(e2.equals("")){
+            s = 2;
+        }
         
-        if(data.contains(e2+":"+p2)){
+        if(s == 1){
                 jLError5.setText("");
                 JOptionPane.showMessageDialog(this, "Witaj: "+u);
             } else {

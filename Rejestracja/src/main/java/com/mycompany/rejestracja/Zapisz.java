@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,10 +39,16 @@ class Zapisz {
                 
                 this.s=1;
             } else {
-                this.s=2;
+                this.s=0;
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Rejestracja.class.getName()).log(Level.SEVERE, null, ex);
         }
+     }
+     public int getData(){
+         return s;
+     }
+     public void setData(int d){
+         this.s=d;
      }
 }

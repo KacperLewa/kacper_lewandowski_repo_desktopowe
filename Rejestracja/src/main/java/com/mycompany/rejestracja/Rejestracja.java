@@ -119,6 +119,55 @@ public class Rejestracja extends javax.swing.JFrame {
                 jPFConPassword.setEditable(true);
             }
         });
+        
+        jTFEmail2.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                char sign = e.getKeyChar();
+                if (sign >= 'A' && sign <= 'z'
+                        || sign == '@'
+                        || sign == '.'
+                        || sign == KeyEvent.VK_BACK_SPACE){
+                    
+                } else {
+                    jTFEmail2.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jTFEmail2.setEditable(true);
+            }
+        });
+        
+        jPFPassword2.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                char sign = e.getKeyChar();
+                if (sign >= 'A' && sign <= 'z'
+                        || sign >= '0' && sign <= '9'
+                        || sign == KeyEvent.VK_BACK_SPACE){
+                    
+                } else {
+                    jPFPassword2.setEditable(false);
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                jPFPassword2.setEditable(true);
+            }
+        });
     }
 
     /**
@@ -146,6 +195,7 @@ public class Rejestracja extends javax.swing.JFrame {
         jLError2 = new javax.swing.JLabel();
         jLError3 = new javax.swing.JLabel();
         jLError4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -209,6 +259,9 @@ public class Rejestracja extends javax.swing.JFrame {
         jLError4.setForeground(new java.awt.Color(255, 0, 0));
         jLError4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        jLabel9.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 204, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -239,8 +292,14 @@ public class Rejestracja extends javax.swing.JFrame {
                         .addComponent(jLError3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLError4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 172, Short.MAX_VALUE)
+                                .addComponent(jLError4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,7 +331,9 @@ public class Rejestracja extends javax.swing.JFrame {
                 .addComponent(jPFConPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jLabel9))
                     .addComponent(jLError4))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
@@ -393,6 +454,9 @@ public class Rejestracja extends javax.swing.JFrame {
         }
         if(g==4){
             z.zapisz(u, e, p);
+            jLabel9.setText("Jesteś zarejestrowany! ");
+        } else {
+            jLabel9.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -401,8 +465,12 @@ public class Rejestracja extends javax.swing.JFrame {
         String p2 = new String (jPFPassword2.getPassword());
         String u = jTFUser.getText();
         z.odczyt(e2, p2, u);
-        
-        if(data.contains(e2+":"+p2)){
+        int s = z.getData();
+        if(e2.equals("") || p2.equals("")){
+            z.setData(2);
+            s = z.getData();
+        }
+        if(s == 1){
                 jLError5.setText("");
                 JOptionPane.showMessageDialog(this, "Witaj: "+u);
             } else {
@@ -445,7 +513,7 @@ public class Rejestracja extends javax.swing.JFrame {
         });
     }
     File f;
-    Zapisz z = new Zapisz();;
+    Zapisz z = new Zapisz();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -463,6 +531,7 @@ public class Rejestracja extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPFConPassword;
     private javax.swing.JPasswordField jPFPassword;
     private javax.swing.JPasswordField jPFPassword2;

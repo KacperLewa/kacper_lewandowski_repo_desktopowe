@@ -4,6 +4,10 @@
  */
 package com.mycompany.kolkoikrzyzyk;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import java.util.ArrayList;
+
 /**
  *
  * @author lewandowskikacper
@@ -13,6 +17,17 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     /**
      * Creates new form KolkoIKrzyzyk
      */
+    String sign1 = "";
+    String sign2 = "";
+    int score1 = 0;
+    int score2 = 0;
+    int first = 1;
+    Icon icon = new ImageIcon("");
+    Icon icon2 = new ImageIcon("");
+    Icon icon3 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\nothing.png");
+    ArrayList<Integer> list = new ArrayList<Integer>(8);
+    
+    
     public KolkoIKrzyzyk() {
         initComponents();
     }
@@ -29,16 +44,16 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTFName1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTFName2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCB1 = new javax.swing.JComboBox<>();
+        jCB2 = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        jBNewGame = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -51,11 +66,11 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jBNextGame = new javax.swing.JButton();
+        jLName1 = new javax.swing.JLabel();
+        jLName2 = new javax.swing.JLabel();
+        jLPoints1 = new javax.swing.JLabel();
+        jLPoints2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 500));
@@ -68,12 +83,12 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
         jLabel1.setText("Nazwa Gracza 1");
 
-        jTextField1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jTFName1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
         jLabel2.setText("Nazwa Gracza 2");
 
-        jTextField2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jTFName2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("sansserif", 3, 36)); // NOI18N
         jLabel3.setText("Kółko i krzyżyk");
@@ -84,11 +99,16 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
         jLabel10.setText("Rodzaj symbolu");
 
-        jComboBox1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kółko", "Krzyżyk", " ", " " }));
+        jCB1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jCB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kółko", "Krzyżyk" }));
 
-        jComboBox2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Krzyżyk", "Kółko", " " }));
+        jCB2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jCB2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Krzyżyk", "Kółko" }));
+        jCB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB2ActionPerformed(evt);
+            }
+        });
 
         jButton11.setBackground(new java.awt.Color(0, 51, 153));
         jButton11.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
@@ -101,14 +121,14 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setBackground(new java.awt.Color(0, 51, 153));
-        jButton12.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
-        jButton12.setText("Nowa sesja");
-        jButton12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton12.setPreferredSize(new java.awt.Dimension(140, 70));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jBNewGame.setBackground(new java.awt.Color(0, 51, 153));
+        jBNewGame.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
+        jBNewGame.setText("Nowa sesja");
+        jBNewGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBNewGame.setPreferredSize(new java.awt.Dimension(140, 70));
+        jBNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jBNewGameActionPerformed(evt);
             }
         });
 
@@ -141,23 +161,23 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                                 .addComponent(jLabel2))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTFName1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTFName2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel10))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(54, 54, 54)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -171,20 +191,20 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
@@ -205,54 +225,99 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 128, 0));
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 128, 0));
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 128, 0));
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton4.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(255, 128, 0));
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton5.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(255, 128, 0));
         jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton6.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(255, 128, 0));
         jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton7.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setBackground(new java.awt.Color(255, 128, 0));
         jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton8.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setBackground(new java.awt.Color(255, 128, 0));
         jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton9.setPreferredSize(new java.awt.Dimension(135, 135));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 26)); // NOI18N
         jLabel4.setText("Wygrał ");
 
-        jButton10.setBackground(new java.awt.Color(255, 153, 153));
-        jButton10.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jButton10.setText("Następna gra");
-        jButton10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBNextGame.setBackground(new java.awt.Color(255, 153, 153));
+        jBNextGame.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jBNextGame.setText("Następna gra");
+        jBNextGame.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jBNextGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNextGameActionPerformed(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel5.setText("Gracz 1");
+        jLName1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLName1.setText("Gracz 1");
 
-        jLabel6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel6.setText("Gracz 2");
+        jLName2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLName2.setText("Gracz 2");
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel7.setText("0 ");
+        jLPoints1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLPoints1.setText("0 ");
 
-        jLabel8.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel8.setText("0 ");
+        jLPoints2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLPoints2.setText("0 ");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -262,10 +327,10 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jLabel5))
+                        .addComponent(jLName1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jLabel7)))
+                        .addComponent(jLPoints1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -285,16 +350,16 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(29, 29, 29)
-                                        .addComponent(jLabel8)
+                                        .addComponent(jLPoints2)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addContainerGap())))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jBNextGame, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,14 +385,14 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                             .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(jLabel5)
+                        .addComponent(jLName1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
+                        .addComponent(jLPoints1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel6)
+                        .addComponent(jLName2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)))
+                        .addComponent(jLPoints2)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -336,7 +401,7 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBNextGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -357,20 +422,652 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        first = first+1;
+        if(first % 2 == 0){
+            jButton1.setIcon(icon);
+            jButton1.setEnabled(false);
+            list.add(0,1);
+        } else {
+            jButton1.setIcon(icon2);
+            jButton1.setEnabled(false);
+            list.add(0,2);
+        }
+        
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void jBNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNewGameActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        jLName1.setText(name1);
+        jLName2.setText(name2);
+        sign1 = jCB1.getSelectedItem().toString();
+        sign2 = jCB2.getSelectedItem().toString();
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButton1.setIcon(icon3);
+        jButton2.setIcon(icon3);
+        jButton3.setIcon(icon3);
+        jButton4.setIcon(icon3);
+        jButton5.setIcon(icon3);
+        jButton6.setIcon(icon3);
+        jButton7.setIcon(icon3);
+        jButton8.setIcon(icon3);
+        jButton9.setIcon(icon3);
+        if (sign1.equals("Kółko")){
+            icon = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\circle.png");
+        }
+        if (sign2.equals("Kółko")){
+            icon2 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\circle.png");
+        }
+        if (sign1.equals("Krzyżyk")){
+            icon = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\cross.png");
+        }
+        if (sign2.equals("Krzyżyk")){
+            icon2 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\cross.png");
+        }
+        list.clear();
+        for(int i=0; i<list.size(); i++){
+            list.add(0);
+        }
+    }//GEN-LAST:event_jBNewGameActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jBNextGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextGameActionPerformed
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButton1.setIcon(icon3);
+        jButton2.setIcon(icon3);
+        jButton3.setIcon(icon3);
+        jButton4.setIcon(icon3);
+        jButton5.setIcon(icon3);
+        jButton6.setIcon(icon3);
+        jButton7.setIcon(icon3);
+        jButton8.setIcon(icon3);
+        jButton9.setIcon(icon3);
+        list.clear();
+        for(int i=0; i<list.size(); i++){
+            list.add(0);
+        }
+    }//GEN-LAST:event_jBNextGameActionPerformed
+
+    private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton2.setIcon(icon);
+            jButton2.setEnabled(false);
+            list.add(1,1);
+        } else {
+            jButton2.setIcon(icon2);
+            jButton2.setEnabled(false);
+            list.add(1,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton3.setIcon(icon);
+            jButton3.setEnabled(false);
+            list.add(2,1);
+        } else {
+            jButton3.setIcon(icon2);
+            jButton3.setEnabled(false);
+            list.add(2,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton4.setIcon(icon);
+            jButton4.setEnabled(false);
+            list.add(3,1);
+        } else {
+            jButton4.setIcon(icon2);
+            jButton4.setEnabled(false);
+            list.add(3,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton5.setIcon(icon);
+            jButton5.setEnabled(false);
+            list.add(4,1);
+        } else {
+            jButton5.setIcon(icon2);
+            jButton5.setEnabled(false);
+            list.add(4,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton6.setIcon(icon);
+            jButton6.setEnabled(false);
+            list.add(5,1);
+        } else {
+            jButton6.setIcon(icon2);
+            jButton6.setEnabled(false);
+            list.add(5,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton7.setIcon(icon);
+            jButton7.setEnabled(false);
+            list.add(6,1);
+        } else {
+            jButton7.setIcon(icon2);
+            jButton7.setEnabled(false);
+            list.add(6,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton8.setIcon(icon);
+            jButton8.setEnabled(false);
+            list.add(7,1);
+        } else {
+            jButton8.setIcon(icon2);
+            jButton8.setEnabled(false);
+            list.add(7,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        first = first+1;
+        if(first % 2 == 0){
+            jButton9.setIcon(icon);
+            jButton9.setEnabled(false);
+            list.add(8,1);
+        } else {
+            jButton9.setIcon(icon2);
+            jButton9.setEnabled(false);
+            list.add(8,2);
+        }
+        
+        
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+        
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            jLPoints2.setText(Integer.toString(score2));
+        }
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -408,10 +1105,10 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBNewGame;
+    private javax.swing.JButton jBNextGame;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -421,22 +1118,22 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCB1;
+    private javax.swing.JComboBox<String> jCB2;
+    private javax.swing.JLabel jLName1;
+    private javax.swing.JLabel jLName2;
+    private javax.swing.JLabel jLPoints1;
+    private javax.swing.JLabel jLPoints2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTFName1;
+    private javax.swing.JTextField jTFName2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

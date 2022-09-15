@@ -7,13 +7,30 @@ package com.mycompany.kolkoikrzyzyk;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author lewandowskikacper
  */
+
+
 public class KolkoIKrzyzyk extends javax.swing.JFrame {
 
+    public class Przyciski {
+
+    public void off() {
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
+        jButton7.setEnabled(false);
+        jButton8.setEnabled(false);
+        jButton9.setEnabled(false);
+    }
+}
     /**
      * Creates new form KolkoIKrzyzyk
      */
@@ -24,8 +41,9 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     int first = 1;
     Icon icon = new ImageIcon("");
     Icon icon2 = new ImageIcon("");
-    Icon icon3 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\nothing.png");
-    ArrayList<Integer> list = new ArrayList<Integer>(8);
+    Icon icon3 = new ImageIcon("/home/lewandowskikacper/Desktop/obrazy/nothing.jpg");
+    ArrayList<Integer> list = new ArrayList<>(8);
+    Przyciski p = new Przyciski();
     
     
     public KolkoIKrzyzyk() {
@@ -55,6 +73,7 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jBNewGame = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -112,7 +131,7 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(0, 51, 153));
         jButton11.setFont(new java.awt.Font("sansserif", 1, 16)); // NOI18N
-        jButton11.setText("Historia");
+        jButton11.setText("Wyjdź");
         jButton11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton11.setPreferredSize(new java.awt.Dimension(140, 70));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +161,8 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
+
+        jLabel5.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -179,6 +200,10 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,12 +226,14 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gracze", jPanel2);
@@ -421,20 +448,53 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBNextGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextGameActionPerformed
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
+        jButton5.setEnabled(true);
+        jButton6.setEnabled(true);
+        jButton7.setEnabled(true);
+        jButton8.setEnabled(true);
+        jButton9.setEnabled(true);
+        jButton1.setIcon(icon3);
+        jButton2.setIcon(icon3);
+        jButton3.setIcon(icon3);
+        jButton4.setIcon(icon3);
+        jButton5.setIcon(icon3);
+        jButton6.setIcon(icon3);
+        jButton7.setIcon(icon3);
+        jButton8.setIcon(icon3);
+        jButton9.setIcon(icon3);
+        list.clear();
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        first = 1;
+
+    }//GEN-LAST:event_jBNextGameActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
         first = first+1;
         if(first % 2 == 0){
-            jButton1.setIcon(icon);
-            jButton1.setEnabled(false);
-            list.add(0,1);
+            jButton9.setIcon(icon);
+            jButton9.setEnabled(false);
+            list.set(8,1);
         } else {
-            jButton1.setIcon(icon2);
-            jButton1.setEnabled(false);
-            list.add(0,2);
+            jButton9.setIcon(icon2);
+            jButton9.setEnabled(false);
+            list.set(8,2);
         }
-        
-        
-        
+
         int L1 = list.get(0);
         int L2 = list.get(1);
         int L3 = list.get(2);
@@ -444,50 +504,973 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         int L7 = list.get(6);
         int L8 = list.get(7);
         int L9 = list.get(8);
-        
+
         if(L1 == 1 && L2 == 1 && L3 ==1){
+
             score1 = score1 + 1;
             jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
         } else if (L4 == 1 && L5 == 1 && L6 ==1){
             score1 = score1 + 1;
             jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
         } else if (L7 == 1 && L8 == 1 && L9 ==1){
             score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
             jLPoints1.setText(Integer.toString(score1));
         } else if (L1 == 1 && L4 == 1 && L7 ==1){
             score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
             jLPoints1.setText(Integer.toString(score1));
         } else if (L2 == 1 && L5 == 1 && L8 ==1){
             score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
             jLPoints1.setText(Integer.toString(score1));
         } else if (L3 == 1 && L6 == 1 && L9 ==1){
             score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
             jLPoints1.setText(Integer.toString(score1));
         } else if(L1 == 2 && L2 == 2 && L3 ==2){
             score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
             jLPoints2.setText(Integer.toString(score2));
         } else if (L4 == 2 && L5 == 2 && L6 ==2){
             score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
             jLPoints2.setText(Integer.toString(score2));
         } else if (L7 == 2 && L8 == 2 && L9 ==2){
             score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
             jLPoints2.setText(Integer.toString(score2));
         } else if (L1 == 2 && L4 == 2 && L7 ==2){
             score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
             jLPoints2.setText(Integer.toString(score2));
         } else if (L2 == 2 && L5 == 2 && L8 ==2){
             score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
             jLPoints2.setText(Integer.toString(score2));
         } else if (L3 == 2 && L6 == 2 && L9 ==2){
             score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
             jLPoints2.setText(Integer.toString(score2));
         }
-        
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton8.setIcon(icon);
+            jButton8.setEnabled(false);
+            list.set(7,1);
+        } else {
+            jButton8.setIcon(icon2);
+            jButton8.setEnabled(false);
+            list.set(7,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton7.setIcon(icon);
+            jButton7.setEnabled(false);
+            list.set(6,1);
+        } else {
+            jButton7.setIcon(icon2);
+            jButton7.setEnabled(false);
+            list.set(6,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton6.setIcon(icon);
+            jButton6.setEnabled(false);
+            list.set(5,1);
+        } else {
+            jButton6.setIcon(icon2);
+            jButton6.setEnabled(false);
+            list.set(5,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton5.setIcon(icon);
+            jButton5.setEnabled(false);
+            list.set(4,1);
+        } else {
+            jButton5.setIcon(icon2);
+            jButton5.setEnabled(false);
+            list.set(4,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton4.setIcon(icon);
+            jButton4.setEnabled(false);
+            list.set(3,1);
+        } else {
+            jButton4.setIcon(icon2);
+            jButton4.setEnabled(false);
+            list.set(3,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton3.setIcon(icon);
+            jButton3.setEnabled(false);
+            list.set(2,1);
+        } else {
+            jButton3.setIcon(icon2);
+            jButton3.setEnabled(false);
+            list.set(2,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+
+        first = first+1;
+        if(first % 2 == 0){
+            jButton2.setIcon(icon);
+            jButton2.setEnabled(false);
+            list.set(1,1);
+        } else {
+            jButton2.setIcon(icon2);
+            jButton2.setEnabled(false);
+            list.set(1,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String name1 = jTFName1.getText();
+        String name2 = jTFName2.getText();
+        first = first+1;
+        if(first % 2 == 0){
+            jButton1.setIcon(icon);
+            jButton1.setEnabled(false);
+            list.set(0,1);
+        } else {
+            jButton1.setIcon(icon2);
+            jButton1.setEnabled(false);
+            list.set(0,2);
+        }
+
+        int L1 = list.get(0);
+        int L2 = list.get(1);
+        int L3 = list.get(2);
+        int L4 = list.get(3);
+        int L5 = list.get(4);
+        int L6 = list.get(5);
+        int L7 = list.get(6);
+        int L8 = list.get(7);
+        int L9 = list.get(8);
+
+        if(L1 == 1 && L2 == 1 && L3 ==1){
+
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+
+        } else if (L4 == 1 && L5 == 1 && L6 ==1){
+            score1 = score1 + 1;
+            jLPoints1.setText(Integer.toString(score1));
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+        } else if (L7 == 1 && L8 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 1 && L4 == 1 && L7 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L2 == 1 && L5 == 1 && L8 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 1 && L6 == 1 && L9 ==1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if(L1 == 2 && L2 == 2 && L3 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L4 == 2 && L5 == 2 && L6 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L7 == 2 && L8 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 2 && L4 == 2 && L7 ==2){
+            score2 = score2 + 1;
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            p.off();
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L2 == 2 && L5 == 2 && L8 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 2 && L6 == 2 && L9 ==2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L1 == 1 && L5 == 1 && L9 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L1 == 2 && L5 == 2 && L9 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        } else if (L3 == 1 && L5 == 1 && L7 == 1){
+            score1 = score1 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name1);
+            jLPoints1.setText(Integer.toString(score1));
+        } else if (L3 == 2 && L5 == 2 && L7 == 2){
+            score2 = score2 + 1;
+            p.off();
+            z.zapisz(name1, sign1, name2, sign2, name2);
+            jLPoints2.setText(Integer.toString(score2));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        JOptionPane.showMessageDialog(this, "Kto ułoży 3 te same znaki w pionie, poziomie lub po skosie, ten wygrywa.");
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jBNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNewGameActionPerformed
         String name1 = jTFName1.getText();
@@ -515,559 +1498,45 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
         jButton8.setIcon(icon3);
         jButton9.setIcon(icon3);
         if (sign1.equals("Kółko")){
-            icon = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\circle.png");
+            icon = new ImageIcon("/home/lewandowskikacper/Desktop/obrazy/o.jpg");
         }
         if (sign2.equals("Kółko")){
-            icon2 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\circle.png");
+            icon2 = new ImageIcon("/home/lewandowskikacper/Desktop/obrazy/o.jpg");
         }
         if (sign1.equals("Krzyżyk")){
-            icon = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\cross.png");
+            icon = new ImageIcon("/home/lewandowskikacper/Desktop/obrazy/x.jpg");
         }
         if (sign2.equals("Krzyżyk")){
-            icon2 = new ImageIcon("C:\\Users\\kacpe\\Desktop\\ok\\cross.png");
+            icon2 = new ImageIcon("/home/lewandowskikacper/Desktop/obrazy/x.jpg");
+        }
+        if (sign1.equals(sign2)){
+            jLabel5.setText("Wybraliście tan sam znak!!!");
+        } else {
+            jLabel5.setText("");
         }
         list.clear();
-        for(int i=0; i<list.size(); i++){
-            list.add(0);
-        }
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        list.add(9);
+        score1 = 0;
+        score2 = 0;
+        first = 1;
+
     }//GEN-LAST:event_jBNewGameActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jBNextGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNextGameActionPerformed
-        jButton1.setEnabled(true);
-        jButton2.setEnabled(true);
-        jButton3.setEnabled(true);
-        jButton4.setEnabled(true);
-        jButton5.setEnabled(true);
-        jButton6.setEnabled(true);
-        jButton7.setEnabled(true);
-        jButton8.setEnabled(true);
-        jButton9.setEnabled(true);
-        jButton1.setIcon(icon3);
-        jButton2.setIcon(icon3);
-        jButton3.setIcon(icon3);
-        jButton4.setIcon(icon3);
-        jButton5.setIcon(icon3);
-        jButton6.setIcon(icon3);
-        jButton7.setIcon(icon3);
-        jButton8.setIcon(icon3);
-        jButton9.setIcon(icon3);
-        list.clear();
-        for(int i=0; i<list.size(); i++){
-            list.add(0);
-        }
-    }//GEN-LAST:event_jBNextGameActionPerformed
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCB2ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton2.setIcon(icon);
-            jButton2.setEnabled(false);
-            list.add(1,1);
-        } else {
-            jButton2.setIcon(icon2);
-            jButton2.setEnabled(false);
-            list.add(1,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton3.setIcon(icon);
-            jButton3.setEnabled(false);
-            list.add(2,1);
-        } else {
-            jButton3.setIcon(icon2);
-            jButton3.setEnabled(false);
-            list.add(2,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton4.setIcon(icon);
-            jButton4.setEnabled(false);
-            list.add(3,1);
-        } else {
-            jButton4.setIcon(icon2);
-            jButton4.setEnabled(false);
-            list.add(3,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton5.setIcon(icon);
-            jButton5.setEnabled(false);
-            list.add(4,1);
-        } else {
-            jButton5.setIcon(icon2);
-            jButton5.setEnabled(false);
-            list.add(4,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton6.setIcon(icon);
-            jButton6.setEnabled(false);
-            list.add(5,1);
-        } else {
-            jButton6.setIcon(icon2);
-            jButton6.setEnabled(false);
-            list.add(5,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton7.setIcon(icon);
-            jButton7.setEnabled(false);
-            list.add(6,1);
-        } else {
-            jButton7.setIcon(icon2);
-            jButton7.setEnabled(false);
-            list.add(6,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton8.setIcon(icon);
-            jButton8.setEnabled(false);
-            list.add(7,1);
-        } else {
-            jButton8.setIcon(icon2);
-            jButton8.setEnabled(false);
-            list.add(7,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        first = first+1;
-        if(first % 2 == 0){
-            jButton9.setIcon(icon);
-            jButton9.setEnabled(false);
-            list.add(8,1);
-        } else {
-            jButton9.setIcon(icon2);
-            jButton9.setEnabled(false);
-            list.add(8,2);
-        }
-        
-        
-        int L1 = list.get(0);
-        int L2 = list.get(1);
-        int L3 = list.get(2);
-        int L4 = list.get(3);
-        int L5 = list.get(4);
-        int L6 = list.get(5);
-        int L7 = list.get(6);
-        int L8 = list.get(7);
-        int L9 = list.get(8);
-        
-        if(L1 == 1 && L2 == 1 && L3 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L4 == 1 && L5 == 1 && L6 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L7 == 1 && L8 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L1 == 1 && L4 == 1 && L7 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L2 == 1 && L5 == 1 && L8 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if (L3 == 1 && L6 == 1 && L9 ==1){
-            score1 = score1 + 1;
-            jLPoints1.setText(Integer.toString(score1));
-        } else if(L1 == 2 && L2 == 2 && L3 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L4 == 2 && L5 == 2 && L6 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L7 == 2 && L8 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L1 == 2 && L4 == 2 && L7 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L2 == 2 && L5 == 2 && L8 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        } else if (L3 == 2 && L6 == 2 && L9 ==2){
-            score2 = score2 + 1;
-            jLPoints2.setText(Integer.toString(score2));
-        }
-        
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1103,7 +1572,7 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
             }
         });
     }
-
+    Zapisz z = new Zapisz();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBNewGame;
     private javax.swing.JButton jBNextGame;
@@ -1129,6 +1598,7 @@ public class KolkoIKrzyzyk extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -4,6 +4,9 @@
  */
 package com.mycompany.szyfrowanie;
 
+import java.sql.Types;
+import java.util.Arrays;
+
 /**
  *
  * @author lewandowskikacper
@@ -42,7 +45,6 @@ public class Szyfrowanie extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 450));
         setMinimumSize(new java.awt.Dimension(800, 450));
-        setPreferredSize(new java.awt.Dimension(800, 450));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 153));
@@ -52,15 +54,31 @@ public class Szyfrowanie extends javax.swing.JFrame {
 
         buttonGroup1.add(jRB1);
         jRB1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jRB1.setSelected(true);
         jRB1.setText("KODOWANIE");
+        jRB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRB2);
         jRB2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         jRB2.setText("DEKODOWANIE");
+        jRB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRB2ActionPerformed(evt);
+            }
+        });
 
         jBZakoduj.setBackground(new java.awt.Color(255, 204, 102));
         jBZakoduj.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jBZakoduj.setText("ZAKODUJ");
+        jBZakoduj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBZakodujActionPerformed(evt);
+            }
+        });
 
         jBWyczysc.setBackground(new java.awt.Color(255, 204, 102));
         jBWyczysc.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -152,6 +170,36 @@ public class Szyfrowanie extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBZakodujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBZakodujActionPerformed
+        if(jRB1.isSelected()){
+            String text = jTALeft.getText();
+            text = text.toLowerCase();
+            String litery = "abcdefghijklmnopqrstuwxyz";
+            char[] tab1 = text.toCharArray();
+            char[] tab2 = litery.toCharArray();
+            String odp = "";
+            for(int i=0; i<text.length(); i++){
+                char q = text.charAt(i);
+                int s = Arrays.asList(tab2).indexOf(q);
+                char w = tab2[s+3];
+                text = text.substring(0,i)+w+text.substring(i+1);
+            }
+            jTALeft.setText(text);
+        }
+    }//GEN-LAST:event_jBZakodujActionPerformed
+
+    private void jRB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB1ActionPerformed
+        jBZakoduj.setText("ZAKODUJ");
+        jBZapisz.setText("ZAPISZ");
+        jLabel1.setText("Zakodowany text");
+    }//GEN-LAST:event_jRB1ActionPerformed
+
+    private void jRB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRB2ActionPerformed
+        jBZakoduj.setText("ODKODUJ");
+        jBZapisz.setText("WCZYTAJ");
+        jLabel1.setText("Odkodowany tekst");
+    }//GEN-LAST:event_jRB2ActionPerformed
 
     /**
      * @param args the command line arguments

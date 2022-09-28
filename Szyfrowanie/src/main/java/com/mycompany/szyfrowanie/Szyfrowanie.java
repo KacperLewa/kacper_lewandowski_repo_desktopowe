@@ -4,8 +4,14 @@
  */
 package com.mycompany.szyfrowanie;
 
-import java.sql.Types;
-import java.util.Arrays;
+import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.util.Scanner;
+import java.util.logging.*;
+
+
 
 /**
  *
@@ -18,6 +24,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
      */
     public Szyfrowanie() {
         initComponents();
+        f = new File("szyfr.txt");
     }
 
     /**
@@ -84,11 +91,21 @@ public class Szyfrowanie extends javax.swing.JFrame {
         jBWyczysc.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jBWyczysc.setText("WYCZYŚĆ");
         jBWyczysc.setPreferredSize(new java.awt.Dimension(120, 40));
+        jBWyczysc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBWyczyscActionPerformed(evt);
+            }
+        });
 
         jBZapisz.setBackground(new java.awt.Color(255, 204, 102));
         jBZapisz.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jBZapisz.setText("ZAPISZ");
         jBZapisz.setPreferredSize(new java.awt.Dimension(120, 40));
+        jBZapisz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBZapiszActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel1.setText("Zaszyfrowany teskt");
@@ -126,7 +143,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBZapisz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -152,7 +169,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,17 +192,28 @@ public class Szyfrowanie extends javax.swing.JFrame {
         if(jRB1.isSelected()){
             String text = jTALeft.getText();
             text = text.toLowerCase();
-            String litery = "abcdefghijklmnopqrstuwxyz";
-            char[] tab1 = text.toCharArray();
-            char[] tab2 = litery.toCharArray();
+            String litery = "xyzźżaąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcć";
             String odp = "";
             for(int i=0; i<text.length(); i++){
-                char q = text.charAt(i);
-                int s = Arrays.asList(tab2).indexOf(q);
-                char w = tab2[s+3];
-                text = text.substring(0,i)+w+text.substring(i+1);
+                int p = litery.indexOf(text.charAt(i));
+                int klucz = p+5;
+                char n = litery.charAt(klucz);
+                odp += n;
             }
-            jTALeft.setText(text);
+            jTARight.setText(odp);
+            
+        } else if(jRB2.isSelected()){
+            String text = jTALeft.getText();
+            text = text.toLowerCase();
+            String litery = "aąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcć";
+            String odp = "";
+            for(int i=0; i<text.length(); i++){
+                int p = litery.indexOf(text.charAt(i));
+                int klucz = p-5;
+                char n = litery.charAt(klucz);
+                odp += n;
+            }
+            jTARight.setText(odp);
         }
     }//GEN-LAST:event_jBZakodujActionPerformed
 
@@ -200,6 +228,35 @@ public class Szyfrowanie extends javax.swing.JFrame {
         jBZapisz.setText("WCZYTAJ");
         jLabel1.setText("Odkodowany tekst");
     }//GEN-LAST:event_jRB2ActionPerformed
+
+    private void jBWyczyscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBWyczyscActionPerformed
+        jTALeft.setText("");
+        jTARight.setText("");
+    }//GEN-LAST:event_jBWyczyscActionPerformed
+
+    private void jBZapiszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBZapiszActionPerformed
+        if(jRB1.isSelected()){
+            String szyfr = jTARight.getText();
+            try{
+                FileWriter fw = new FileWriter(f);
+                fw.write(szyfr);
+                fw.close();
+            } catch (IOException ex) {
+            Logger.getLogger(Szyfrowanie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } else if(jRB2.isSelected()){
+            try{
+            Scanner sc = new Scanner(f);
+            String data = "";
+            while(sc.hasNext()){
+                data += sc.nextLine()+System.lineSeparator();
+            }
+            jTALeft.setText(data);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Szyfrowanie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_jBZapiszActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,7 +292,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
             }
         });
     }
-
+    File f;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBWyczysc;

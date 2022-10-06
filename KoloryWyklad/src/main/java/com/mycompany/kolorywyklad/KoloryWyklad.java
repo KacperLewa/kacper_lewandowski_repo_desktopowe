@@ -55,14 +55,22 @@ public class KoloryWyklad extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel1.setText("Program do wybierania kolorów");
 
+        jLabel2.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel2.setText("Red");
 
+        jLabel3.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel3.setText("Green");
 
+        jLabel4.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel4.setText("Blue");
 
+        jSlider2.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jSlider2.setMajorTickSpacing(25);
         jSlider2.setMaximum(225);
         jSlider2.setMinorTickSpacing(1);
@@ -75,6 +83,7 @@ public class KoloryWyklad extends javax.swing.JFrame {
             }
         });
 
+        jSlider3.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jSlider3.setMajorTickSpacing(25);
         jSlider3.setMaximum(225);
         jSlider3.setMinorTickSpacing(1);
@@ -87,24 +96,31 @@ public class KoloryWyklad extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("RED");
 
+        jLabel6.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("GREEN");
 
+        jLabel7.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("BLUE");
 
+        jLabel8.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("0");
 
+        jLabel9.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("0");
 
+        jLabel10.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("0");
 
+        jSlider4.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jSlider4.setMajorTickSpacing(25);
         jSlider4.setMaximum(225);
         jSlider4.setMinorTickSpacing(1);
@@ -130,39 +146,53 @@ public class KoloryWyklad extends javax.swing.JFrame {
             .addGap(0, 150, Short.MAX_VALUE)
         );
 
+        jLabel11.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jLabel11.setText("HTML");
 
+        jTextField1.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("0");
 
-        jButton1.setText("Koralowy");
+        jButton1.setBackground(new java.awt.Color(228, 190, 207));
+        jButton1.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jButton1.setText("Majtkowy");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Łososiowy");
+        jButton2.setBackground(new java.awt.Color(44, 27, 1));
+        jButton2.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 204, 204));
+        jButton2.setText("Kawowy");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cyjan");
+        jButton3.setBackground(new java.awt.Color(205, 127, 50));
+        jButton3.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jButton3.setText("Spiżowy");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Beżowy");
+        jButton4.setBackground(new java.awt.Color(0, 39, 194));
+        jButton4.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(204, 204, 204));
+        jButton4.setText("Błękit paryski");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(238, 130, 238));
+        jButton5.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
         jButton5.setText("Fiołkowy");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +200,9 @@ public class KoloryWyklad extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Gumiguta");
+        jButton6.setBackground(new java.awt.Color(147, 246, 0));
+        jButton6.setFont(new java.awt.Font("sansserif", 2, 13)); // NOI18N
+        jButton6.setText("Limonkowy");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -193,7 +225,7 @@ public class KoloryWyklad extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                     .addComponent(jSlider3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSlider4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -219,17 +251,20 @@ public class KoloryWyklad extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jButton1))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 152, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(33, 33, 33)
+                                                .addComponent(jButton4))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,11 +307,11 @@ public class KoloryWyklad extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
                             .addComponent(jButton5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3)
                             .addComponent(jButton6))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,36 +341,51 @@ public class KoloryWyklad extends javax.swing.JFrame {
     }//GEN-LAST:event_jSlider3StateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int rt = 255;
-        int gt = 127;
-        int bt = 80;
+        int rt = 228;
+        int gt = 190;
+        int bt = 207;
         jPanel2.setBackground(getColourRGB(rt, gt, bt));
         setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jPanel2.setBackground(getColourRGB(0, 225, 225));
-        setColorAfterButton(0, 225, 225);
+        int rt = 205;
+        int gt = 127;
+        int bt = 50;
+        jPanel2.setBackground(getColourRGB(rt, gt, bt));
+        setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jPanel2.setBackground(getColourRGB(250, 128, 114));
-        setColorAfterButton(250, 128, 114);
+        int rt = 44;
+        int gt = 27;
+        int bt = 1;
+        jPanel2.setBackground(getColourRGB(rt, gt, bt));
+        setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jPanel2.setBackground(getColourRGB(217, 186, 140));
-        setColorAfterButton(217, 186, 140);
+        int rt = 0;
+        int gt = 39;
+        int bt = 194;
+        jPanel2.setBackground(getColourRGB(rt, gt, bt));
+        setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jPanel2.setBackground(getColourRGB(238, 130, 238));
-        setColorAfterButton(238, 130, 238);
+        int rt = 238;
+        int gt = 130;
+        int bt = 238;
+        jPanel2.setBackground(getColourRGB(rt, gt, bt));
+        setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jPanel2.setBackground(getColourRGB(228, 155, 15));
-        setColorAfterButton(228, 155, 15);
+        int rt = 147;
+        int gt = 246;
+        int bt = 0;
+        jPanel2.setBackground(getColourRGB(rt, gt, bt));
+        setColorAfterButton(rt, gt, bt);
     }//GEN-LAST:event_jButton6ActionPerformed
     private void setColorAfterButton(int rt, int gt, int bt){
         jPanel2.setBackground(getColourRGB(rt, gt, bt));

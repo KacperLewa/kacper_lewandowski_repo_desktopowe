@@ -24,7 +24,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
      */
     public Szyfrowanie() {
         initComponents();
-        f = new File("szyfr.csv");
+        f = new File("szyfr.txt");
     }
 
     /**
@@ -192,11 +192,11 @@ public class Szyfrowanie extends javax.swing.JFrame {
         if(jRB1.isSelected()){
             String text = jTALeft.getText();
             text = text.toLowerCase();
-            String litery = "xyzźżaąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcć";
+            String litery = "/?<>=-+!@#$%^&*();:'{}[]`~123456789xyzźżaąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcćdeęfg";
             String odp = "";
             for(int i=0; i<text.length(); i++){
                 int p = litery.indexOf(text.charAt(i));
-                int klucz = p+5;
+                int klucz = p+8;
                 char n = litery.charAt(klucz);
                 odp += n;
             }
@@ -205,11 +205,11 @@ public class Szyfrowanie extends javax.swing.JFrame {
         } else if(jRB2.isSelected()){
             String text = jTALeft.getText();
             text = text.toLowerCase();
-            String litery = "aąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcć";
+            String litery = "/?<>=-+!@#$%^&*();:'{}[]`~123456789xyzźżaąbcćdeęfghijklłmnoópqrsśtuwxyzźżaąbcćdeęfg";
             String odp = "";
             for(int i=0; i<text.length(); i++){
                 int p = litery.indexOf(text.charAt(i));
-                int klucz = p-5;
+                int klucz = p-8;
                 char n = litery.charAt(klucz);
                 odp += n;
             }
@@ -249,7 +249,7 @@ public class Szyfrowanie extends javax.swing.JFrame {
             Scanner sc = new Scanner(f);
             String data = "";
             while(sc.hasNext()){
-                data += sc.nextLine()+System.lineSeparator();
+                data += sc.nextLine();
             }
             jTALeft.setText(data);
         } catch (FileNotFoundException ex) {

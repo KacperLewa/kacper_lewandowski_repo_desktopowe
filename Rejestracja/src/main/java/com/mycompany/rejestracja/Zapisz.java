@@ -11,10 +11,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
 
->>>>>>> 7750bd21d1208752bc9ffbf1fd2297620ba7cf55
 
 /**
  *
@@ -52,10 +49,9 @@ class Zapisz {
      public int getData(){
          return s;
      }
-<<<<<<< HEAD
+
      public void setData(int d){
          this.s=d;
      }
-=======
->>>>>>> 7750bd21d1208752bc9ffbf1fd2297620ba7cf55
+
 }

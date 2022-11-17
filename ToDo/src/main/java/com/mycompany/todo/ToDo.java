@@ -22,13 +22,21 @@ public class ToDo extends javax.swing.JFrame {
         int d = localDate.getDayOfMonth();
         int m = localDate.getMonthValue();
         int y = localDate.getYear();
+        int dm = localDate.getDayOfMonth();
         jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY));
-        int ar[] = {31,29,31,30,31,30,31,31,30,31,30,31};
-        if(y%4==0&&y%100!=0||y%100==0){
-            ar[1] = 29;
-        } else{
-            ar[1] = 28;
+        int[] tab = new int[42];
+        tab[dm] = dm;
+        int q = 0;
+        for(int i=dm; i>=0; i--){
+            localDate = localDate.minusDays(localDate.getDayOfMonth()-q);
+            int s = localDate.getDayOfMonth();
+            tab[i] = s;
+            q = q+1;
         }
+        for(int i=0; i<tab.length; i++){
+            System.out.println(tab[i]);
+        }
+        System.out.println(q);
         
     }
 
@@ -610,7 +618,7 @@ public class ToDo extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel14.setText("- masz 2 zadania");
+        jLabel14.setText("- masz 3 zadania");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -652,16 +660,15 @@ public class ToDo extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel4)
                         .addGap(38, 38, 38)
-                        .addComponent(jLabel5)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel6)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel7)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLMonth)
-                        .addGap(200, 200, 200))))
+                        .addComponent(jLMonth)))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel6)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7)
+                .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

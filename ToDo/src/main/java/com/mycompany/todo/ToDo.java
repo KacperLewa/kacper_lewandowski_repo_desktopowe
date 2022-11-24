@@ -28,15 +28,64 @@ public class ToDo extends javax.swing.JFrame {
         tab[dm] = dm;
         int q = 0;
         for(int i=dm; i>=0; i--){
-            localDate = localDate.minusDays(localDate.getDayOfMonth()-q);
+            localDate = localDate.minusDays(q);
             int s = localDate.getDayOfMonth();
             tab[i] = s;
             q = q+1;
+            localDate = LocalDate.now();
         }
-        for(int i=0; i<tab.length; i++){
-            System.out.println(tab[i]);
+        q = 1;
+        for(int i=dm; i<tab.length; i++){
+            localDate = localDate.plusDays(q);
+            int s = localDate.getDayOfMonth();
+            tab[i] = s;
+            q = q+1;
+            localDate = LocalDate.now();
         }
-        System.out.println(q);
+        
+        localDate = LocalDate.now();
+        jB1.setText(Integer.toString(tab[0]));
+        jB2.setText(Integer.toString(tab[1]));
+        jB3.setText(Integer.toString(tab[2]));
+        jB4.setText(Integer.toString(tab[3]));
+        jB5.setText(Integer.toString(tab[4]));
+        jB6.setText(Integer.toString(tab[5]));
+        jB7.setText(Integer.toString(tab[6]));
+        jB8.setText(Integer.toString(tab[7]));
+        jB9.setText(Integer.toString(tab[8]));
+        jB10.setText(Integer.toString(tab[9]));
+        jB11.setText(Integer.toString(tab[10]));
+        jB12.setText(Integer.toString(tab[11]));
+        jB13.setText(Integer.toString(tab[12]));
+        jB14.setText(Integer.toString(tab[13]));
+        jB15.setText(Integer.toString(tab[14]));
+        jB16.setText(Integer.toString(tab[15]));
+        jB17.setText(Integer.toString(tab[16]));
+        jB18.setText(Integer.toString(tab[17]));
+        jB19.setText(Integer.toString(tab[18]));
+        jB20.setText(Integer.toString(tab[19]));
+        jB21.setText(Integer.toString(tab[20]));
+        jB22.setText(Integer.toString(tab[21]));
+        jB23.setText(Integer.toString(tab[22]));
+        jB24.setText(Integer.toString(tab[23]));
+        jB25.setText(Integer.toString(tab[24]));
+        jB26.setText(Integer.toString(tab[25]));
+        jB27.setText(Integer.toString(tab[26]));
+        jB28.setText(Integer.toString(tab[27]));
+        jB29.setText(Integer.toString(tab[28]));
+        jB30.setText(Integer.toString(tab[29]));
+        jB31.setText(Integer.toString(tab[30]));
+        jB32.setText(Integer.toString(tab[31]));
+        jB33.setText(Integer.toString(tab[32]));
+        jB34.setText(Integer.toString(tab[33]));
+        jB35.setText(Integer.toString(tab[34]));
+        jB36.setText(Integer.toString(tab[35]));
+        jB37.setText(Integer.toString(tab[36]));
+        jB38.setText(Integer.toString(tab[37]));
+        jB39.setText(Integer.toString(tab[38]));
+        jB40.setText(Integer.toString(tab[39]));
+        jB41.setText(Integer.toString(tab[40]));
+        jB42.setText(Integer.toString(tab[41]));
         
     }
 

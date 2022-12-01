@@ -4,6 +4,8 @@
  */
 package com.mycompany.todo;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author lewandowskikacper
@@ -17,7 +19,8 @@ public class DayPicked extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,15 +32,14 @@ public class DayPicked extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBDelTask = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jLTask = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -46,27 +48,31 @@ public class DayPicked extends javax.swing.JDialog {
         jButton1.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jButton1.setText("+");
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 153));
-        jButton2.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jButton2.setText("-");
+        jBDelTask.setBackground(new java.awt.Color(0, 204, 153));
+        jBDelTask.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        jBDelTask.setForeground(new java.awt.Color(51, 51, 51));
+        jBDelTask.setText("-");
+        jBDelTask.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDelTaskActionPerformed(evt);
+            }
+        });
 
-        jList1.setBackground(new java.awt.Color(0, 204, 153));
-        jList1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jLTask.setBackground(new java.awt.Color(0, 204, 153));
+        jLTask.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLTask.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setSelectionBackground(new java.awt.Color(153, 204, 0));
-        jScrollPane1.setViewportView(jList1);
+        jLTask.setSelectionBackground(new java.awt.Color(153, 204, 0));
+        jScrollPane1.setViewportView(jLTask);
 
         jTextArea1.setBackground(new java.awt.Color(0, 204, 153));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
-        jTextArea1.getAccessibleContext().setAccessibleParent(null);
 
         jLabel1.setBackground(new java.awt.Color(51, 102, 0));
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 30)); // NOI18N
@@ -83,7 +89,7 @@ public class DayPicked extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBDelTask, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +104,7 @@ public class DayPicked extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBDelTask, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
@@ -125,16 +131,22 @@ public class DayPicked extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBDelTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDelTaskActionPerformed
+        DefaultListModel dlm = new DefaultListModel<>();
+        int task = jLTask.getSelectedIndex();
+        dlm.remove(task);
+    }//GEN-LAST:event_jBDelTaskActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBDelTask;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JList<String> jLTask;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

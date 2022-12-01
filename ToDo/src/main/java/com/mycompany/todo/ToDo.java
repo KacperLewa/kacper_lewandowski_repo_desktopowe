@@ -23,11 +23,12 @@ public class ToDo extends javax.swing.JFrame {
         int m = localDate.getMonthValue();
         int y = localDate.getYear();
         int dm = localDate.getDayOfMonth();
+        int dw = localDate.getDayOfWeek().getValue();
         jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY));
         int[] tab = new int[42];
-        tab[dm] = dm;
+        tab[dw-1] = dm;
         int q = 0;
-        for(int i=dm; i>=0; i--){
+        for(int i=dw-1; i>=0; i--){
             localDate = localDate.minusDays(q);
             int s = localDate.getDayOfMonth();
             tab[i] = s;
@@ -35,7 +36,7 @@ public class ToDo extends javax.swing.JFrame {
             localDate = LocalDate.now();
         }
         q = 1;
-        for(int i=dm; i<tab.length; i++){
+        for(int i=dw; i<tab.length; i++){
             localDate = localDate.plusDays(q);
             int s = localDate.getDayOfMonth();
             tab[i] = s;
@@ -88,6 +89,8 @@ public class ToDo extends javax.swing.JFrame {
         jB42.setText(Integer.toString(tab[41]));
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,6 +179,11 @@ public class ToDo extends javax.swing.JFrame {
         jB1.setForeground(new java.awt.Color(102, 51, 255));
         jB1.setToolTipText("");
         jB1.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB1ActionPerformed(evt);
+            }
+        });
 
         jB2.setBackground(new java.awt.Color(167, 201, 87));
         jB2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -799,6 +807,10 @@ public class ToDo extends javax.swing.JFrame {
     private void jB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jB6ActionPerformed
+
+    private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
+        
+    }//GEN-LAST:event_jB1ActionPerformed
 
     /**
      * @param args the command line arguments

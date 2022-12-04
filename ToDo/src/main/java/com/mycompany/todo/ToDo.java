@@ -809,7 +809,8 @@ public class ToDo extends javax.swing.JFrame {
     }//GEN-LAST:event_jB6ActionPerformed
 
     private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
-        
+        DayPicked dp = new DayPicked(this, true);
+        dp.setVisible(true);
     }//GEN-LAST:event_jB1ActionPerformed
 
     /**

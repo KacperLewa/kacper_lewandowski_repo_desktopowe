@@ -20,7 +20,8 @@ public class AddTask extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    String title;
+    String decsription;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,14 +147,18 @@ public class AddTask extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddTaskActionPerformed
-        String title = jTFTitle.getText();
-        dlm.addElement(title);
+        title = jTFTitle.getText();
+        decsription = jTAText.getText();
+        Task t = new Task(title, decsription);
+        dlm.addElement(t.getTitle());
     }//GEN-LAST:event_jBAddTaskActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
+    public Task getTask(){
+        return new Task(title, decsription);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAddTask;
     private javax.swing.JButton jBClose;

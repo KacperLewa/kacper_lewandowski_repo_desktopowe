@@ -19,6 +19,9 @@ public class DayPicked extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+
+    public DefaultListModel dlm = new DefaultListModel<>();
+    
     
     
     /**
@@ -132,14 +135,16 @@ public class DayPicked extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBDelTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDelTaskActionPerformed
-        DefaultListModel dlm = new DefaultListModel<>();
-        int task = jLTask.getSelectedIndex();
-        dlm.remove(task);
+        int index = jLTask.getSelectedIndex();
+        dlm.remove(index);
     }//GEN-LAST:event_jBDelTaskActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    private Task showAddTask(){
+        AddTask at = new AddTask(ToDo.class, true);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -12,13 +12,14 @@ import javax.swing.DefaultListModel;
  */
 public class AddTask extends javax.swing.JDialog {
 
-    public DefaultListModel dlm = new DefaultListModel<>();
+    
     /**
      * Creates new form AddTask
      */
     public AddTask(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
     }
     String title;
     String decsription;
@@ -84,6 +85,11 @@ public class AddTask extends javax.swing.JDialog {
         jBClose.setBackground(new java.awt.Color(255, 255, 0));
         jBClose.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jBClose.setText("Zamknij");
+        jBClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCloseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -149,9 +155,12 @@ public class AddTask extends javax.swing.JDialog {
     private void jBAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddTaskActionPerformed
         title = jTFTitle.getText();
         decsription = jTAText.getText();
-        Task t = new Task(title, decsription);
-        dlm.addElement(t.getTitle());
+        setVisible(false);
     }//GEN-LAST:event_jBAddTaskActionPerformed
+
+    private void jBCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCloseActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jBCloseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,6 +168,7 @@ public class AddTask extends javax.swing.JDialog {
     public Task getTask(){
         return new Task(title, decsription);
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAddTask;
     private javax.swing.JButton jBClose;

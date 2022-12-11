@@ -2,6 +2,11 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.JTextField" name="jTextField1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -93,10 +98,19 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="jBMonthLeft" min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLMonth" min="-2" pref="216" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jBMonthRight" min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -104,14 +118,10 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLMonth" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -121,9 +131,13 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jLMonth" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jBMonthLeft" alignment="1" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="jLMonth" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBMonthRight" alignment="1" min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -411,6 +425,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB3">
               <Properties>
@@ -427,6 +444,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB3ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB4">
               <Properties>
@@ -443,6 +463,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB4ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB5">
               <Properties>
@@ -459,6 +482,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB5ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB6">
               <Properties>
@@ -494,6 +520,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB7ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB8">
               <Properties>
@@ -510,6 +539,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB8ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB9">
               <Properties>
@@ -526,6 +558,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB9ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB10">
               <Properties>
@@ -542,6 +577,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB10ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB11">
               <Properties>
@@ -558,6 +596,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB11ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB12">
               <Properties>
@@ -574,6 +615,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB12ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB13">
               <Properties>
@@ -590,6 +634,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB13ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB14">
               <Properties>
@@ -606,6 +653,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB14ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB15">
               <Properties>
@@ -622,6 +672,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB15ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB16">
               <Properties>
@@ -638,6 +691,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB16ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB17">
               <Properties>
@@ -654,6 +710,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB17ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB18">
               <Properties>
@@ -670,6 +729,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB18ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB19">
               <Properties>
@@ -686,6 +748,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB19ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB20">
               <Properties>
@@ -702,6 +767,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB20ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB21">
               <Properties>
@@ -718,6 +786,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB21ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB22">
               <Properties>
@@ -734,6 +805,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB22ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB23">
               <Properties>
@@ -750,6 +824,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB23ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB24">
               <Properties>
@@ -766,6 +843,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB24ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB25">
               <Properties>
@@ -782,6 +862,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB25ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB26">
               <Properties>
@@ -798,6 +881,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB26ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB27">
               <Properties>
@@ -814,6 +900,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB27ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB28">
               <Properties>
@@ -830,6 +919,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB28ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB29">
               <Properties>
@@ -846,6 +938,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB29ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB30">
               <Properties>
@@ -862,6 +957,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB30ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB31">
               <Properties>
@@ -878,6 +976,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB31ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB32">
               <Properties>
@@ -913,6 +1014,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB33ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB34">
               <Properties>
@@ -929,6 +1033,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB34ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB35">
               <Properties>
@@ -945,6 +1052,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB35ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB36">
               <Properties>
@@ -961,6 +1071,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB36ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB37">
               <Properties>
@@ -977,6 +1090,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB37ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB38">
               <Properties>
@@ -993,6 +1109,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB38ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB39">
               <Properties>
@@ -1009,6 +1128,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB39ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB40">
               <Properties>
@@ -1025,6 +1147,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB40ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB41">
               <Properties>
@@ -1041,6 +1166,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB41ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jB42">
               <Properties>
@@ -1057,6 +1185,9 @@
                   <Dimension value="[70, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB42ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1145,6 +1276,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="ff" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Miesi&#x105;c"/>
           </Properties>
         </Component>
@@ -1312,6 +1444,34 @@
             </Property>
             <Property name="text" type="java.lang.String" value="- masz 3 zadania"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBMonthRight">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="57" green="c9" red="a7" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&gt;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBMonthRightActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jBMonthLeft">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="57" green="c9" red="a7" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBMonthLeftActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

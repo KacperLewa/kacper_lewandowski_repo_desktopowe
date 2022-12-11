@@ -16,80 +16,19 @@ public class ToDo extends javax.swing.JFrame {
     /**
      * Creates new form ToDo
      */
+    
+    LocalDate localDate = LocalDate.now();
+    LocalDate localDate2 = LocalDate.now();
+    int dm = localDate.getDayOfMonth();
+    int lm = localDate.getMonthValue();
+    int ly = localDate.getYear();
+    SaveInfo si = new SaveInfo(dm,lm,ly);
+        
     public ToDo() {
         initComponents();
-        LocalDate localDate = LocalDate.now();
-        int d = localDate.getDayOfMonth();
-        int m = localDate.getMonthValue();
-        int y = localDate.getYear();
-        int dm = localDate.getDayOfMonth();
-        int dw = localDate.getDayOfWeek().getValue();
-        jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY));
-        int[] tab = new int[42];
-        tab[dw-1] = dm;
-        int q = 0;
-        for(int i=dw-1; i>=0; i--){
-            localDate = localDate.minusDays(q);
-            int s = localDate.getDayOfMonth();
-            tab[i] = s;
-            q = q+1;
-            localDate = LocalDate.now();
-        }
-        q = 1;
-        for(int i=dw; i<tab.length; i++){
-            localDate = localDate.plusDays(q);
-            int s = localDate.getDayOfMonth();
-            tab[i] = s;
-            q = q+1;
-            localDate = LocalDate.now();
-        }
-        
-        localDate = LocalDate.now();
-        jB1.setText(Integer.toString(tab[0]));
-        jB2.setText(Integer.toString(tab[1]));
-        jB3.setText(Integer.toString(tab[2]));
-        jB4.setText(Integer.toString(tab[3]));
-        jB5.setText(Integer.toString(tab[4]));
-        jB6.setText(Integer.toString(tab[5]));
-        jB7.setText(Integer.toString(tab[6]));
-        jB8.setText(Integer.toString(tab[7]));
-        jB9.setText(Integer.toString(tab[8]));
-        jB10.setText(Integer.toString(tab[9]));
-        jB11.setText(Integer.toString(tab[10]));
-        jB12.setText(Integer.toString(tab[11]));
-        jB13.setText(Integer.toString(tab[12]));
-        jB14.setText(Integer.toString(tab[13]));
-        jB15.setText(Integer.toString(tab[14]));
-        jB16.setText(Integer.toString(tab[15]));
-        jB17.setText(Integer.toString(tab[16]));
-        jB18.setText(Integer.toString(tab[17]));
-        jB19.setText(Integer.toString(tab[18]));
-        jB20.setText(Integer.toString(tab[19]));
-        jB21.setText(Integer.toString(tab[20]));
-        jB22.setText(Integer.toString(tab[21]));
-        jB23.setText(Integer.toString(tab[22]));
-        jB24.setText(Integer.toString(tab[23]));
-        jB25.setText(Integer.toString(tab[24]));
-        jB26.setText(Integer.toString(tab[25]));
-        jB27.setText(Integer.toString(tab[26]));
-        jB28.setText(Integer.toString(tab[27]));
-        jB29.setText(Integer.toString(tab[28]));
-        jB30.setText(Integer.toString(tab[29]));
-        jB31.setText(Integer.toString(tab[30]));
-        jB32.setText(Integer.toString(tab[31]));
-        jB33.setText(Integer.toString(tab[32]));
-        jB34.setText(Integer.toString(tab[33]));
-        jB35.setText(Integer.toString(tab[34]));
-        jB36.setText(Integer.toString(tab[35]));
-        jB37.setText(Integer.toString(tab[36]));
-        jB38.setText(Integer.toString(tab[37]));
-        jB39.setText(Integer.toString(tab[38]));
-        jB40.setText(Integer.toString(tab[39]));
-        jB41.setText(Integer.toString(tab[40]));
-        jB42.setText(Integer.toString(tab[41]));
+        createCal(localDate);
         
     }
-    
     
 
     /**
@@ -101,6 +40,7 @@ public class ToDo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jB1 = new javax.swing.JButton();
@@ -163,9 +103,13 @@ public class ToDo extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jBMonthRight = new javax.swing.JButton();
+        jBMonthLeft = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -189,21 +133,41 @@ public class ToDo extends javax.swing.JFrame {
         jB2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB2.setForeground(new java.awt.Color(102, 51, 255));
         jB2.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB2ActionPerformed(evt);
+            }
+        });
 
         jB3.setBackground(new java.awt.Color(167, 201, 87));
         jB3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB3.setForeground(new java.awt.Color(102, 51, 255));
         jB3.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB3ActionPerformed(evt);
+            }
+        });
 
         jB4.setBackground(new java.awt.Color(167, 201, 87));
         jB4.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB4.setForeground(new java.awt.Color(102, 51, 255));
         jB4.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB4ActionPerformed(evt);
+            }
+        });
 
         jB5.setBackground(new java.awt.Color(167, 201, 87));
         jB5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB5.setForeground(new java.awt.Color(102, 51, 255));
         jB5.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB5ActionPerformed(evt);
+            }
+        });
 
         jB6.setBackground(new java.awt.Color(167, 201, 87));
         jB6.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -219,126 +183,251 @@ public class ToDo extends javax.swing.JFrame {
         jB7.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB7.setForeground(new java.awt.Color(102, 51, 255));
         jB7.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB7ActionPerformed(evt);
+            }
+        });
 
         jB8.setBackground(new java.awt.Color(167, 201, 87));
         jB8.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB8.setForeground(new java.awt.Color(102, 51, 255));
         jB8.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB8ActionPerformed(evt);
+            }
+        });
 
         jB9.setBackground(new java.awt.Color(167, 201, 87));
         jB9.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB9.setForeground(new java.awt.Color(102, 51, 255));
         jB9.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB9ActionPerformed(evt);
+            }
+        });
 
         jB10.setBackground(new java.awt.Color(167, 201, 87));
         jB10.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB10.setForeground(new java.awt.Color(102, 51, 255));
         jB10.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB10ActionPerformed(evt);
+            }
+        });
 
         jB11.setBackground(new java.awt.Color(167, 201, 87));
         jB11.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB11.setForeground(new java.awt.Color(102, 51, 255));
         jB11.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB11ActionPerformed(evt);
+            }
+        });
 
         jB12.setBackground(new java.awt.Color(167, 201, 87));
         jB12.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB12.setForeground(new java.awt.Color(102, 51, 255));
         jB12.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB12ActionPerformed(evt);
+            }
+        });
 
         jB13.setBackground(new java.awt.Color(167, 201, 87));
         jB13.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB13.setForeground(new java.awt.Color(102, 51, 255));
         jB13.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB13ActionPerformed(evt);
+            }
+        });
 
         jB14.setBackground(new java.awt.Color(167, 201, 87));
         jB14.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB14.setForeground(new java.awt.Color(102, 51, 255));
         jB14.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB14ActionPerformed(evt);
+            }
+        });
 
         jB15.setBackground(new java.awt.Color(167, 201, 87));
         jB15.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB15.setForeground(new java.awt.Color(102, 51, 255));
         jB15.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB15ActionPerformed(evt);
+            }
+        });
 
         jB16.setBackground(new java.awt.Color(167, 201, 87));
         jB16.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB16.setForeground(new java.awt.Color(102, 51, 255));
         jB16.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB16ActionPerformed(evt);
+            }
+        });
 
         jB17.setBackground(new java.awt.Color(167, 201, 87));
         jB17.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB17.setForeground(new java.awt.Color(102, 51, 255));
         jB17.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB17ActionPerformed(evt);
+            }
+        });
 
         jB18.setBackground(new java.awt.Color(167, 201, 87));
         jB18.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB18.setForeground(new java.awt.Color(102, 51, 255));
         jB18.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB18ActionPerformed(evt);
+            }
+        });
 
         jB19.setBackground(new java.awt.Color(167, 201, 87));
         jB19.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB19.setForeground(new java.awt.Color(102, 51, 255));
         jB19.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB19ActionPerformed(evt);
+            }
+        });
 
         jB20.setBackground(new java.awt.Color(167, 201, 87));
         jB20.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB20.setForeground(new java.awt.Color(102, 51, 255));
         jB20.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB20ActionPerformed(evt);
+            }
+        });
 
         jB21.setBackground(new java.awt.Color(167, 201, 87));
         jB21.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB21.setForeground(new java.awt.Color(102, 51, 255));
         jB21.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB21ActionPerformed(evt);
+            }
+        });
 
         jB22.setBackground(new java.awt.Color(167, 201, 87));
         jB22.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB22.setForeground(new java.awt.Color(102, 51, 255));
         jB22.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB22ActionPerformed(evt);
+            }
+        });
 
         jB23.setBackground(new java.awt.Color(167, 201, 87));
         jB23.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB23.setForeground(new java.awt.Color(102, 51, 255));
         jB23.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB23ActionPerformed(evt);
+            }
+        });
 
         jB24.setBackground(new java.awt.Color(167, 201, 87));
         jB24.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB24.setForeground(new java.awt.Color(102, 51, 255));
         jB24.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB24ActionPerformed(evt);
+            }
+        });
 
         jB25.setBackground(new java.awt.Color(167, 201, 87));
         jB25.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB25.setForeground(new java.awt.Color(102, 51, 255));
         jB25.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB25ActionPerformed(evt);
+            }
+        });
 
         jB26.setBackground(new java.awt.Color(167, 201, 87));
         jB26.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB26.setForeground(new java.awt.Color(102, 51, 255));
         jB26.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB26ActionPerformed(evt);
+            }
+        });
 
         jB27.setBackground(new java.awt.Color(167, 201, 87));
         jB27.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB27.setForeground(new java.awt.Color(102, 51, 255));
         jB27.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB27ActionPerformed(evt);
+            }
+        });
 
         jB28.setBackground(new java.awt.Color(167, 201, 87));
         jB28.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB28.setForeground(new java.awt.Color(102, 51, 255));
         jB28.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB28ActionPerformed(evt);
+            }
+        });
 
         jB29.setBackground(new java.awt.Color(167, 201, 87));
         jB29.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB29.setForeground(new java.awt.Color(102, 51, 255));
         jB29.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB29ActionPerformed(evt);
+            }
+        });
 
         jB30.setBackground(new java.awt.Color(167, 201, 87));
         jB30.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB30.setForeground(new java.awt.Color(102, 51, 255));
         jB30.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB30ActionPerformed(evt);
+            }
+        });
 
         jB31.setBackground(new java.awt.Color(167, 201, 87));
         jB31.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB31.setForeground(new java.awt.Color(102, 51, 255));
         jB31.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB31ActionPerformed(evt);
+            }
+        });
 
         jB32.setBackground(new java.awt.Color(167, 201, 87));
         jB32.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -354,51 +443,101 @@ public class ToDo extends javax.swing.JFrame {
         jB33.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB33.setForeground(new java.awt.Color(102, 51, 255));
         jB33.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB33ActionPerformed(evt);
+            }
+        });
 
         jB34.setBackground(new java.awt.Color(167, 201, 87));
         jB34.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB34.setForeground(new java.awt.Color(102, 51, 255));
         jB34.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB34ActionPerformed(evt);
+            }
+        });
 
         jB35.setBackground(new java.awt.Color(167, 201, 87));
         jB35.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB35.setForeground(new java.awt.Color(102, 51, 255));
         jB35.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB35ActionPerformed(evt);
+            }
+        });
 
         jB36.setBackground(new java.awt.Color(167, 201, 87));
         jB36.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB36.setForeground(new java.awt.Color(102, 51, 255));
         jB36.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB36ActionPerformed(evt);
+            }
+        });
 
         jB37.setBackground(new java.awt.Color(167, 201, 87));
         jB37.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB37.setForeground(new java.awt.Color(102, 51, 255));
         jB37.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB37ActionPerformed(evt);
+            }
+        });
 
         jB38.setBackground(new java.awt.Color(167, 201, 87));
         jB38.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB38.setForeground(new java.awt.Color(102, 51, 255));
         jB38.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB38ActionPerformed(evt);
+            }
+        });
 
         jB39.setBackground(new java.awt.Color(167, 201, 87));
         jB39.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB39.setForeground(new java.awt.Color(102, 51, 255));
         jB39.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB39ActionPerformed(evt);
+            }
+        });
 
         jB40.setBackground(new java.awt.Color(167, 201, 87));
         jB40.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB40.setForeground(new java.awt.Color(102, 51, 255));
         jB40.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB40ActionPerformed(evt);
+            }
+        });
 
         jB41.setBackground(new java.awt.Color(167, 201, 87));
         jB41.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB41.setForeground(new java.awt.Color(102, 51, 255));
         jB41.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB41ActionPerformed(evt);
+            }
+        });
 
         jB42.setBackground(new java.awt.Color(167, 201, 87));
         jB42.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jB42.setForeground(new java.awt.Color(102, 51, 255));
         jB42.setPreferredSize(new java.awt.Dimension(70, 70));
+        jB42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB42ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -590,6 +729,7 @@ public class ToDo extends javax.swing.JFrame {
 
         jLMonth.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         jLMonth.setForeground(new java.awt.Color(153, 255, 153));
+        jLMonth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLMonth.setText("Miesiąc");
 
         jLabel9.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
@@ -614,7 +754,7 @@ public class ToDo extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(14, 14, 14))
         );
@@ -677,6 +817,24 @@ public class ToDo extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 102, 102));
         jLabel14.setText("- masz 3 zadania");
 
+        jBMonthRight.setBackground(new java.awt.Color(167, 201, 87));
+        jBMonthRight.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jBMonthRight.setText(">");
+        jBMonthRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMonthRightActionPerformed(evt);
+            }
+        });
+
+        jBMonthLeft.setBackground(new java.awt.Color(167, 201, 87));
+        jBMonthLeft.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jBMonthLeft.setText("<");
+        jBMonthLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBMonthLeftActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -708,21 +866,26 @@ public class ToDo extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(137, 137, 137)
+                        .addComponent(jBMonthLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBMonthRight, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
                         .addComponent(jLabel2)
-                        .addGap(40, 40, 40)
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(36, 36, 36)
                         .addComponent(jLabel4)
                         .addGap(38, 38, 38)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLMonth)))
-                .addGap(46, 46, 46)
-                .addComponent(jLabel6)
+                        .addComponent(jLabel5)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel6)))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel7)
                 .addGap(50, 50, 50))
@@ -730,9 +893,12 @@ public class ToDo extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLMonth)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBMonthLeft, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLMonth, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBMonthRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
@@ -801,18 +967,278 @@ public class ToDo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB32ActionPerformed
-        // TODO add your handling code here:
+        openWin(Integer.parseInt(jB32.getText()), 32);
     }//GEN-LAST:event_jB32ActionPerformed
 
     private void jB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB6ActionPerformed
-        // TODO add your handling code here:
+        openWin(Integer.parseInt(jB6.getText()), 6);
     }//GEN-LAST:event_jB6ActionPerformed
 
     private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
-        DayPicked dp = new DayPicked(this, true);
-        dp.setVisible(true);
+        openWin(Integer.parseInt(jB1.getText()), 1);
     }//GEN-LAST:event_jB1ActionPerformed
 
+    private void jBMonthLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMonthLeftActionPerformed
+        localDate = localDate.minusMonths(1);
+        dm = localDate.getDayOfMonth();
+        createCal(localDate);
+    }//GEN-LAST:event_jBMonthLeftActionPerformed
+
+    private void jBMonthRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMonthRightActionPerformed
+        localDate = localDate.plusMonths(1);
+        dm = localDate.getDayOfMonth();
+        createCal(localDate);
+    }//GEN-LAST:event_jBMonthRightActionPerformed
+
+    private void jB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB2ActionPerformed
+        openWin(Integer.parseInt(jB2.getText()), 2);
+    }//GEN-LAST:event_jB2ActionPerformed
+
+    private void jB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB3ActionPerformed
+        openWin(Integer.parseInt(jB3.getText()), 3);
+    }//GEN-LAST:event_jB3ActionPerformed
+
+    private void jB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB4ActionPerformed
+        openWin(Integer.parseInt(jB4.getText()), 4);
+    }//GEN-LAST:event_jB4ActionPerformed
+
+    private void jB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB5ActionPerformed
+        openWin(Integer.parseInt(jB5.getText()), 5);
+    }//GEN-LAST:event_jB5ActionPerformed
+
+    private void jB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB7ActionPerformed
+        openWin(Integer.parseInt(jB7.getText()), 7);
+    }//GEN-LAST:event_jB7ActionPerformed
+
+    private void jB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB8ActionPerformed
+        openWin(Integer.parseInt(jB8.getText()), 8);
+    }//GEN-LAST:event_jB8ActionPerformed
+
+    private void jB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB9ActionPerformed
+        openWin(Integer.parseInt(jB9.getText()), 9);
+    }//GEN-LAST:event_jB9ActionPerformed
+
+    private void jB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB10ActionPerformed
+        openWin(Integer.parseInt(jB10.getText()), 10);
+    }//GEN-LAST:event_jB10ActionPerformed
+
+    private void jB11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB11ActionPerformed
+        openWin(Integer.parseInt(jB11.getText()), 11);
+    }//GEN-LAST:event_jB11ActionPerformed
+
+    private void jB12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB12ActionPerformed
+        openWin(Integer.parseInt(jB12.getText()), 12);
+    }//GEN-LAST:event_jB12ActionPerformed
+
+    private void jB13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB13ActionPerformed
+        openWin(Integer.parseInt(jB13.getText()), 13);
+    }//GEN-LAST:event_jB13ActionPerformed
+
+    private void jB14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB14ActionPerformed
+        openWin(Integer.parseInt(jB14.getText()), 14);
+    }//GEN-LAST:event_jB14ActionPerformed
+
+    private void jB15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB15ActionPerformed
+        openWin(Integer.parseInt(jB15.getText()), 15);
+    }//GEN-LAST:event_jB15ActionPerformed
+
+    private void jB16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB16ActionPerformed
+        openWin(Integer.parseInt(jB16.getText()), 16);
+    }//GEN-LAST:event_jB16ActionPerformed
+
+    private void jB17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB17ActionPerformed
+        openWin(Integer.parseInt(jB17.getText()), 17);
+    }//GEN-LAST:event_jB17ActionPerformed
+
+    private void jB18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB18ActionPerformed
+        openWin(Integer.parseInt(jB18.getText()), 18);
+    }//GEN-LAST:event_jB18ActionPerformed
+
+    private void jB19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB19ActionPerformed
+        openWin(Integer.parseInt(jB19.getText()), 19);
+    }//GEN-LAST:event_jB19ActionPerformed
+
+    private void jB20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB20ActionPerformed
+        openWin(Integer.parseInt(jB20.getText()), 20);
+    }//GEN-LAST:event_jB20ActionPerformed
+
+    private void jB21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB21ActionPerformed
+        openWin(Integer.parseInt(jB21.getText()), 21);
+    }//GEN-LAST:event_jB21ActionPerformed
+
+    private void jB22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB22ActionPerformed
+        openWin(Integer.parseInt(jB22.getText()), 22);
+    }//GEN-LAST:event_jB22ActionPerformed
+
+    private void jB23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB23ActionPerformed
+        openWin(Integer.parseInt(jB23.getText()), 23);
+    }//GEN-LAST:event_jB23ActionPerformed
+
+    private void jB24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB24ActionPerformed
+        openWin(Integer.parseInt(jB24.getText()), 24);
+    }//GEN-LAST:event_jB24ActionPerformed
+
+    private void jB25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB25ActionPerformed
+        openWin(Integer.parseInt(jB25.getText()), 25);
+    }//GEN-LAST:event_jB25ActionPerformed
+
+    private void jB26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB26ActionPerformed
+        openWin(Integer.parseInt(jB26.getText()), 26);
+    }//GEN-LAST:event_jB26ActionPerformed
+
+    private void jB27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB27ActionPerformed
+        openWin(Integer.parseInt(jB27.getText()), 27);
+    }//GEN-LAST:event_jB27ActionPerformed
+
+    private void jB28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB28ActionPerformed
+        openWin(Integer.parseInt(jB28.getText()), 28);
+    }//GEN-LAST:event_jB28ActionPerformed
+
+    private void jB29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB29ActionPerformed
+        openWin(Integer.parseInt(jB29.getText()), 29);
+    }//GEN-LAST:event_jB29ActionPerformed
+
+    private void jB30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB30ActionPerformed
+        openWin(Integer.parseInt(jB30.getText()), 30);
+    }//GEN-LAST:event_jB30ActionPerformed
+
+    private void jB31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB31ActionPerformed
+        openWin(Integer.parseInt(jB31.getText()), 31);
+    }//GEN-LAST:event_jB31ActionPerformed
+
+    private void jB33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB33ActionPerformed
+        openWin(Integer.parseInt(jB33.getText()), 33);
+    }//GEN-LAST:event_jB33ActionPerformed
+
+    private void jB34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB34ActionPerformed
+        openWin(Integer.parseInt(jB34.getText()), 34);
+    }//GEN-LAST:event_jB34ActionPerformed
+
+    private void jB35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB35ActionPerformed
+        openWin(Integer.parseInt(jB35.getText()), 35);
+    }//GEN-LAST:event_jB35ActionPerformed
+
+    private void jB36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB36ActionPerformed
+        openWin(Integer.parseInt(jB36.getText()), 36);
+    }//GEN-LAST:event_jB36ActionPerformed
+
+    private void jB37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB37ActionPerformed
+        openWin(Integer.parseInt(jB37.getText()), 37);
+    }//GEN-LAST:event_jB37ActionPerformed
+
+    private void jB38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB38ActionPerformed
+        openWin(Integer.parseInt(jB38.getText()), 38);
+    }//GEN-LAST:event_jB38ActionPerformed
+
+    private void jB39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB39ActionPerformed
+        openWin(Integer.parseInt(jB39.getText()), 39);
+    }//GEN-LAST:event_jB39ActionPerformed
+
+    private void jB40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB40ActionPerformed
+        openWin(Integer.parseInt(jB40.getText()), 40);
+    }//GEN-LAST:event_jB40ActionPerformed
+
+    private void jB41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB41ActionPerformed
+        openWin(Integer.parseInt(jB41.getText()), 41);
+    }//GEN-LAST:event_jB41ActionPerformed
+
+    private void jB42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB42ActionPerformed
+        openWin(Integer.parseInt(jB42.getText()), 42);
+    }//GEN-LAST:event_jB42ActionPerformed
+
+    private void createCal(LocalDate ld){
+        lm = localDate.getMonthValue();
+        ly = localDate.getYear();
+        jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY));
+        int[] tab = new int[42];
+        localDate = localDate.minusDays(dm-1);
+        int dw = localDate.getDayOfWeek().getValue();
+        dm = localDate.getDayOfMonth();
+        tab[dw-1] = dm;
+        int q = 0;
+        for(int i=dw-1; i>=0; i--){
+            localDate = localDate.minusDays(q);
+            int s = localDate.getDayOfMonth();
+            tab[i] = s;
+            q = q+1;
+            localDate = ld;
+            int d = localDate.getDayOfMonth();
+            localDate = localDate.minusDays(d-1);
+        }
+        q = 1;
+        for(int i=dw; i<tab.length; i++){
+            localDate = localDate.plusDays(q);
+            int s = localDate.getDayOfMonth();
+            tab[i] = s;
+            q = q+1;
+            localDate = ld;
+            int d = localDate.getDayOfMonth();
+            localDate = localDate.minusDays(d-1);
+        }
+        
+        localDate = ld;
+        jB1.setText(Integer.toString(tab[0]));
+        jB2.setText(Integer.toString(tab[1]));
+        jB3.setText(Integer.toString(tab[2]));
+        jB4.setText(Integer.toString(tab[3]));
+        jB5.setText(Integer.toString(tab[4]));
+        jB6.setText(Integer.toString(tab[5]));
+        jB7.setText(Integer.toString(tab[6]));
+        jB8.setText(Integer.toString(tab[7]));
+        jB9.setText(Integer.toString(tab[8]));
+        jB10.setText(Integer.toString(tab[9]));
+        jB11.setText(Integer.toString(tab[10]));
+        jB12.setText(Integer.toString(tab[11]));
+        jB13.setText(Integer.toString(tab[12]));
+        jB14.setText(Integer.toString(tab[13]));
+        jB15.setText(Integer.toString(tab[14]));
+        jB16.setText(Integer.toString(tab[15]));
+        jB17.setText(Integer.toString(tab[16]));
+        jB18.setText(Integer.toString(tab[17]));
+        jB19.setText(Integer.toString(tab[18]));
+        jB20.setText(Integer.toString(tab[19]));
+        jB21.setText(Integer.toString(tab[20]));
+        jB22.setText(Integer.toString(tab[21]));
+        jB23.setText(Integer.toString(tab[22]));
+        jB24.setText(Integer.toString(tab[23]));
+        jB25.setText(Integer.toString(tab[24]));
+        jB26.setText(Integer.toString(tab[25]));
+        jB27.setText(Integer.toString(tab[26]));
+        jB28.setText(Integer.toString(tab[27]));
+        jB29.setText(Integer.toString(tab[28]));
+        jB30.setText(Integer.toString(tab[29]));
+        jB31.setText(Integer.toString(tab[30]));
+        jB32.setText(Integer.toString(tab[31]));
+        jB33.setText(Integer.toString(tab[32]));
+        jB34.setText(Integer.toString(tab[33]));
+        jB35.setText(Integer.toString(tab[34]));
+        jB36.setText(Integer.toString(tab[35]));
+        jB37.setText(Integer.toString(tab[36]));
+        jB38.setText(Integer.toString(tab[37]));
+        jB39.setText(Integer.toString(tab[38]));
+        jB40.setText(Integer.toString(tab[39]));
+        jB41.setText(Integer.toString(tab[40]));
+        jB42.setText(Integer.toString(tab[41]));
+    }
+    
+    private void openWin(int a, int b){
+        lm = localDate.getMonthValue();
+        int f = Integer.parseInt(jB6.getText());
+        if(a>b && b<8){
+            localDate2 = localDate.minusMonths(1);
+            lm = localDate2.getMonthValue();
+            ly = localDate2.getYear();
+        }
+        if(a<b-5){
+            localDate2 = localDate.plusMonths(1);
+            lm = localDate2.getMonthValue();
+            ly = localDate2.getYear();
+        }
+        SaveInfo si = new SaveInfo(a,lm,ly);
+        DayPicked dp = new DayPicked(this, true);
+        dp.setData(si.getDate());
+        dp.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -891,6 +1317,8 @@ public class ToDo extends javax.swing.JFrame {
     private javax.swing.JButton jB7;
     private javax.swing.JButton jB8;
     private javax.swing.JButton jB9;
+    private javax.swing.JButton jBMonthLeft;
+    private javax.swing.JButton jBMonthRight;
     private javax.swing.JLabel jLMonth;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -914,5 +1342,6 @@ public class ToDo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

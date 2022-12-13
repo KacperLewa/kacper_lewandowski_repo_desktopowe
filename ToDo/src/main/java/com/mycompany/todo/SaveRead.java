@@ -31,11 +31,11 @@ public class SaveRead {
             fw.write(b+"\n");
             int i = 0;
             while(dlm.size()>i){
-                fw.write(dlm.get(i)+"\n");
+                fw.write("^"+dlm.get(i)+"\n");
                 i++;
             }
             i = 0;
-            while(dlm.size()>i){
+            while(dlm2.size()>i){
                 fw.write("`"+dlm2.get(i)+"\n");
                 i++;
             }
@@ -47,22 +47,21 @@ public class SaveRead {
 
     public DefaultListModel odczyt(LocalDate date){
         String data = "";
+        String x = "^";
         String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String b = "~".concat(a);
         DefaultListModel dlm = new DefaultListModel<>();
         try{
             Scanner sc = new Scanner(f);
             while(sc.hasNext()){
-                if(sc.nextLine().equals(b)){
-                    while(sc.hasNext()){
-                        data = sc.nextLine()+System.lineSeparator();
-                        dlm.addElement(data);
-                        if(sc.nextLine().contains("~") || sc.nextLine().contains("`")){
-                            break;
-                        }
+                data = sc.nextLine()+System.lineSeparator(); 
+                if(data.equals(b)){
+                    while(x.contains("^") && sc.hasNextLine()){
+                        x = sc.nextLine()+System.lineSeparator();
+                        String x2 = x.replaceFirst("^", "");
+                        dlm.addElement(x2);
                     }
-                }
-                break;  
+                } 
             }
             
             
@@ -75,22 +74,24 @@ public class SaveRead {
     public DefaultListModel odczyt2(LocalDate date){
         String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String b = "~".concat(a);
-        String x = "";
+        String data = "";
+        String x = "`";
         DefaultListModel dlm = new DefaultListModel<>();
         try{
             Scanner sc = new Scanner(f);
             while(sc.hasNext()){
-                if(sc.nextLine().equals(b)){
-                    while(sc.hasNext()){
-                        if(sc.nextLine().contains("`")){
+                data = sc.nextLine()+System.lineSeparator();
+                if(data.equals(b)){
+                    data = sc.nextLine()+System.lineSeparator();
+                    if(data.contains(x)){
+                        dlm.addElement(data.replaceFirst("`", ""));
+                        while(x.contains("`") && sc.hasNextLine()){
                             x = sc.nextLine()+System.lineSeparator();
-                            dlm.addElement(x);
-                        } else if(sc.nextLine().contains("~")){
-                            break;
+                            String x2 = x.replaceFirst("`", "");
+                            dlm.addElement(x2);
                         }
                     }
                 }
-                break;  
             }
             
             

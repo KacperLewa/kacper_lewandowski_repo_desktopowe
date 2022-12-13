@@ -23,10 +23,10 @@ public class DayPicked extends javax.swing.JDialog {
     SaveInfo si = new SaveInfo();
     SaveRead sr = new SaveRead();
     
+    
     public DayPicked(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        dlm = sr.odczyt(data);
     }
     
     
@@ -198,6 +198,11 @@ public class DayPicked extends javax.swing.JDialog {
     
     public void setData(LocalDate data){
         this.data = data;
+    }
+    
+    public void setModels(){
+        jLTask.setModel(dlm);
+        jLTask.setModel(dlm2);
     }
     
 

@@ -1235,8 +1235,12 @@ public class ToDo extends javax.swing.JFrame {
             ly = localDate2.getYear();
         }
         SaveInfo si = new SaveInfo(a,lm,ly);
+        SaveRead sr = new SaveRead();
         DayPicked dp = new DayPicked(this, true);
         dp.setData(si.getDate());
+        dp.dlm = sr.odczyt(si.getDate());
+        dp.dlm2 = sr.odczyt2(si.getDate());
+        dp.setModels();
         dp.setVisible(true);
     }
     /**

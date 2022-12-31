@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package com.mycompany.todo;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -39,6 +42,7 @@ public class SaveRead {
                 fw.write("`"+dlm2.get(i)+"\n");
                 i++;
             }
+            fw.write("~"+"\n");
             fw.close();
         } catch (IOException ex) {
             Logger.getLogger(ToDo.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,50 +50,47 @@ public class SaveRead {
     }
 
     public DefaultListModel odczyt(LocalDate date){
-        String data = "";
-        String x = "^";
+//        String data = "";
+//        String x = "^";
+//        String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//        String b = "~".concat(a);
+//        DefaultListModel dlm = new DefaultListModel<>();
+//        try{
+//            Scanner sc = new Scanner(f);
+//            while(sc.hasNextLine()){
+//                data = sc.nextLine()+System.lineSeparator(); 
+//                if(data.equals(b)){
+//                    while(x.contains("^") && sc.hasNextLine()){
+//                        x = sc.nextLine()+System.lineSeparator();
+//                        String x2 = x.replaceFirst("^", "");
+//                        dlm.addElement(x2);
+//                    }
+//                }
+//                data = "";
+//            }
+//            dlm.addElement("gh");
+//            
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(ToDo.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return dlm;
         String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         String b = "~".concat(a);
         DefaultListModel dlm = new DefaultListModel<>();
         try{
             Scanner sc = new Scanner(f);
-            while(sc.hasNext()){
-                data = sc.nextLine()+System.lineSeparator(); 
-                if(data.equals(b)){
-                    while(x.contains("^") && sc.hasNextLine()){
-                        x = sc.nextLine()+System.lineSeparator();
-                        String x2 = x.replaceFirst("^", "");
-                        dlm.addElement(x2);
-                    }
-                } 
-            }
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ToDo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return dlm;
-    }
-    
-    public DefaultListModel odczyt2(LocalDate date){
-        String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        String b = "~".concat(a);
-        String data = "";
-        String x = "`";
-        DefaultListModel dlm = new DefaultListModel<>();
-        try{
-            Scanner sc = new Scanner(f);
-            while(sc.hasNext()){
-                data = sc.nextLine()+System.lineSeparator();
-                if(data.equals(b)){
-                    data = sc.nextLine()+System.lineSeparator();
-                    if(data.contains(x)){
-                        dlm.addElement(data.replaceFirst("`", ""));
-                        while(x.contains("`") && sc.hasNextLine()){
-                            x = sc.nextLine()+System.lineSeparator();
-                            String x2 = x.replaceFirst("`", "");
-                            dlm.addElement(x2);
+            while(sc.hasNextLine()){
+                String linia = sc.nextLine();
+                if(linia.equals(b)){
+                    while(true){
+                        String linia2 = sc.nextLine();
+                        if(linia2.contains("^")){
+                            linia2 = linia2.replaceFirst("^", "");
+                            dlm.addElement(linia2);
+                        } else if(linia2.contains("~")){
+                            break;
                         }
+                        linia2 = "";
                     }
                 }
             }
@@ -100,5 +101,62 @@ public class SaveRead {
         }
         return dlm;
     }
+    
+    public DefaultListModel odczyt2(LocalDate date){
+//        String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//        String b = "~".concat(a);
+//        String data = "";
+//        String x = "`";
+//        DefaultListModel dlm = new DefaultListModel<>();
+//        try{
+//            Scanner sc = new Scanner(f);
+//            while(sc.hasNextLine()){
+//                data = sc.nextLine()+System.lineSeparator();
+//                if(data.equals(b)){
+//                    data = sc.nextLine()+System.lineSeparator();
+//                    if(data.contains(x)){
+//                        dlm.addElement(data.replaceFirst("`", ""));
+//                        while(x.contains("`") && sc.hasNextLine()){
+//                            x = sc.nextLine()+System.lineSeparator();
+//                            String x2 = x.replaceFirst("`", "");
+//                            dlm.addElement(x2);
+//                        }
+//                    }
+//                }
+//                data = "";
+//            }
+//            dlm.addElement("gh");
+//            
+        String a = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String b = "~".concat(a);
+        String data = "";
+        String x = "`";
+        DefaultListModel dlm = new DefaultListModel<>();
+        try{
+            Scanner sc = new Scanner(f);
+            while(sc.hasNextLine()){
+                String linia = sc.nextLine();
+                if(linia.equals(b)){
+                    while(true){
+                        String linia2 = sc.nextLine();
+                        if(linia2.contains("`")){
+                            linia2 = linia2.replaceFirst("`", "");
+                            dlm.addElement(linia2);
+                        } else if(linia2.contains("~")){
+                            break;
+                        }
+                        linia2 = "";
+                    }
+                }
+            }
+            
+           
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ToDo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dlm;
+    }
+    
+    public void usun(LocalDate date){
 }
 

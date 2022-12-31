@@ -78,6 +78,7 @@ public class DayPicked extends javax.swing.JDialog {
         jLTask.setSelectionBackground(new java.awt.Color(153, 204, 0));
         jScrollPane1.setViewportView(jLTask);
 
+        jButton2.setBackground(new java.awt.Color(0, 204, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Zmień");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +87,7 @@ public class DayPicked extends javax.swing.JDialog {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(0, 204, 153));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Opis");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +96,8 @@ public class DayPicked extends javax.swing.JDialog {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 204, 153));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Wyjdź");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +206,6 @@ public class DayPicked extends javax.swing.JDialog {
     
     public void setModels(){
         jLTask.setModel(dlm);
-        jLTask.setModel(dlm2);
     }
     
 

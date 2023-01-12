@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.todo;
+import java.awt.Color;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -23,6 +24,8 @@ public class ToDo extends javax.swing.JFrame {
     int lm = localDate.getMonthValue();
     int ly = localDate.getYear();
     SaveInfo si = new SaveInfo(dm,lm,ly);
+    Color bad = new Color(255,255,153);
+    Color good = new Color(167,201,87);
         
     public ToDo() {
         initComponents();
@@ -93,16 +96,6 @@ public class ToDo extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLMonth = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
         jBMonthRight = new javax.swing.JButton();
         jBMonthLeft = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -112,6 +105,7 @@ public class ToDo extends javax.swing.JFrame {
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ToDo");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(88, 129, 87));
@@ -732,91 +726,6 @@ public class ToDo extends javax.swing.JFrame {
         jLMonth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLMonth.setText("Miesiąc");
 
-        jLabel9.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel9.setText("LEDENDA:");
-
-        jPanel3.setBackground(new java.awt.Color(167, 201, 87));
-        jPanel3.setPreferredSize(new java.awt.Dimension(55, 55));
-
-        jLabel11.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel11.setText("*");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(14, 14, 14))
-        );
-
-        jLabel10.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel10.setText("- dzisiaj");
-
-        jPanel4.setBackground(new java.awt.Color(224, 159, 62));
-        jPanel4.setPreferredSize(new java.awt.Dimension(55, 55));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jLabel13.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel13.setText("- masz 1 zadanie");
-
-        jPanel5.setBackground(new java.awt.Color(0, 102, 153));
-        jPanel5.setPreferredSize(new java.awt.Dimension(55, 55));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jLabel12.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel12.setText("- masz 2 zadania");
-
-        jPanel6.setBackground(new java.awt.Color(204, 0, 102));
-        jPanel6.setPreferredSize(new java.awt.Dimension(55, 55));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
-        jLabel14.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel14.setText("- masz 3 zadania");
-
         jBMonthRight.setBackground(new java.awt.Color(167, 201, 87));
         jBMonthRight.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jBMonthRight.setText(">");
@@ -839,56 +748,37 @@ public class ToDo extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel9)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jBMonthLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBMonthRight, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel2)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel4)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel5)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel6)))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel7)
-                .addGap(50, 50, 50))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(jBMonthLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBMonthRight, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel2)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel4)
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel5)
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabel6)))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel7)
+                        .addGap(21, 21, 21)))
+                .addGap(65, 65, 65))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -910,38 +800,6 @@ public class ToDo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel10)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel13)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jLabel12)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel14)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -960,10 +818,11 @@ public class ToDo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB32ActionPerformed
@@ -972,10 +831,20 @@ public class ToDo extends javax.swing.JFrame {
 
     private void jB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB6ActionPerformed
         openWin(Integer.parseInt(jB6.getText()), 6);
+        if(Integer.parseInt(jB6.getText())>15){
+            jB6.setBackground(bad);
+        } else {
+            jB6.setBackground(good);
+        }
     }//GEN-LAST:event_jB6ActionPerformed
 
     private void jB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB1ActionPerformed
         openWin(Integer.parseInt(jB1.getText()), 1);
+        if(Integer.parseInt(jB1.getText())>15){
+            jB1.setBackground(bad);
+        } else {
+            jB1.setBackground(good);
+        }
     }//GEN-LAST:event_jB1ActionPerformed
 
     private void jBMonthLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMonthLeftActionPerformed
@@ -992,22 +861,47 @@ public class ToDo extends javax.swing.JFrame {
 
     private void jB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB2ActionPerformed
         openWin(Integer.parseInt(jB2.getText()), 2);
+        if(Integer.parseInt(jB2.getText())>15){
+            jB2.setBackground(bad);
+        } else {
+            jB2.setBackground(good);
+        }
     }//GEN-LAST:event_jB2ActionPerformed
 
     private void jB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB3ActionPerformed
         openWin(Integer.parseInt(jB3.getText()), 3);
+        if(Integer.parseInt(jB3.getText())>15){
+            jB3.setBackground(bad);
+        } else {
+            jB3.setBackground(good);
+        }
     }//GEN-LAST:event_jB3ActionPerformed
 
     private void jB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB4ActionPerformed
         openWin(Integer.parseInt(jB4.getText()), 4);
+        if(Integer.parseInt(jB4.getText())>15){
+            jB4.setBackground(bad);
+        } else {
+            jB4.setBackground(good);
+        }
     }//GEN-LAST:event_jB4ActionPerformed
 
     private void jB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB5ActionPerformed
         openWin(Integer.parseInt(jB5.getText()), 5);
+        if(Integer.parseInt(jB5.getText())>15){
+            jB5.setBackground(bad);
+        } else {
+            jB5.setBackground(good);
+        }
     }//GEN-LAST:event_jB5ActionPerformed
 
     private void jB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB7ActionPerformed
         openWin(Integer.parseInt(jB7.getText()), 7);
+        if(Integer.parseInt(jB7.getText())>15){
+            jB7.setBackground(bad);
+        } else {
+            jB7.setBackground(good);
+        }
     }//GEN-LAST:event_jB7ActionPerformed
 
     private void jB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB8ActionPerformed
@@ -1149,7 +1043,7 @@ public class ToDo extends javax.swing.JFrame {
     private void createCal(LocalDate ld){
         lm = localDate.getMonthValue();
         ly = localDate.getYear();
-        jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ITALY));
+        jLMonth.setText(localDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
         int[] tab = new int[42];
         localDate = localDate.minusDays(dm-1);
         int dw = localDate.getDayOfWeek().getValue();
@@ -1219,6 +1113,107 @@ public class ToDo extends javax.swing.JFrame {
         jB40.setText(Integer.toString(tab[39]));
         jB41.setText(Integer.toString(tab[40]));
         jB42.setText(Integer.toString(tab[41]));
+        
+        if(Integer.parseInt(jB1.getText())>15){
+            jB1.setBackground(bad);
+        } else {
+            jB1.setBackground(good);
+        }
+        if(Integer.parseInt(jB2.getText())>15){
+            jB2.setBackground(bad);
+        } else {
+            jB2.setBackground(good);
+        }
+        if(Integer.parseInt(jB3.getText())>15){
+            jB3.setBackground(bad);
+        } else {
+            jB3.setBackground(good);
+        }
+        if(Integer.parseInt(jB4.getText())>15){
+            jB4.setBackground(bad);
+        } else {
+            jB4.setBackground(good);
+        }
+        if(Integer.parseInt(jB5.getText())>15){
+            jB5.setBackground(bad);
+        } else {
+            jB5.setBackground(good);
+        }
+        if(Integer.parseInt(jB6.getText())>15){
+            jB6.setBackground(bad);
+        } else {
+            jB6.setBackground(good);
+        }
+        if(Integer.parseInt(jB7.getText())>15){
+            jB7.setBackground(bad);
+        } else {
+            jB7.setBackground(good);
+        }
+        if(Integer.parseInt(jB30.getText())<15){
+            jB30.setBackground(bad);
+        } else {
+            jB30.setBackground(good);
+        }
+        if(Integer.parseInt(jB31.getText())<15){
+            jB31.setBackground(bad);
+        } else {
+            jB31.setBackground(good);
+        }
+        if(Integer.parseInt(jB32.getText())<15){
+            jB32.setBackground(bad);
+        } else {
+            jB32.setBackground(good);
+        }
+        if(Integer.parseInt(jB33.getText())<15){
+            jB33.setBackground(bad);
+        } else {
+            jB33.setBackground(good);
+        }
+        if(Integer.parseInt(jB34.getText())<15){
+            jB34.setBackground(bad);
+        } else {
+            jB34.setBackground(good);
+        }
+        if(Integer.parseInt(jB35.getText())<15){
+            jB35.setBackground(bad);
+        } else {
+            jB35.setBackground(good);
+        }
+        if(Integer.parseInt(jB36.getText())<15){
+            jB36.setBackground(bad);
+        } else {
+            jB36.setBackground(good);
+        }
+        if(Integer.parseInt(jB37.getText())<15){
+            jB37.setBackground(bad);
+        } else {
+            jB37.setBackground(good);
+        }
+        if(Integer.parseInt(jB38.getText())<15){
+            jB38.setBackground(bad);
+        } else {
+            jB38.setBackground(good);
+        }
+        if(Integer.parseInt(jB39.getText())<15){
+            jB39.setBackground(bad);
+        } else {
+            jB39.setBackground(good);
+        }
+        if(Integer.parseInt(jB40.getText())<15){
+            jB40.setBackground(bad);
+        } else {
+            jB40.setBackground(good);
+        }
+        if(Integer.parseInt(jB41.getText())<15){
+            jB41.setBackground(bad);
+        } else {
+            jB41.setBackground(good);
+        }
+        if(Integer.parseInt(jB42.getText())<15){
+            jB42.setBackground(bad);
+        } else {
+            jB42.setBackground(good);
+        }
     }
     
     private void openWin(int a, int b){
@@ -1229,7 +1224,7 @@ public class ToDo extends javax.swing.JFrame {
             lm = localDate2.getMonthValue();
             ly = localDate2.getYear();
         }
-        if(a<b-5){
+        if(a<b-12){
             localDate2 = localDate.plusMonths(1);
             lm = localDate2.getMonthValue();
             ly = localDate2.getYear();
@@ -1325,27 +1320,17 @@ public class ToDo extends javax.swing.JFrame {
     private javax.swing.JButton jBMonthRight;
     private javax.swing.JLabel jLMonth;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

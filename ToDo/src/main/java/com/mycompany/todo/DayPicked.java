@@ -4,6 +4,10 @@
  */
 package com.mycompany.todo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -19,14 +23,28 @@ public class DayPicked extends javax.swing.JDialog {
      */
     public DefaultListModel dlm = new DefaultListModel<>();
     public DefaultListModel dlm2 = new DefaultListModel<>();
-    private LocalDate data;
+    LocalDate data;
     SaveInfo si = new SaveInfo();
     SaveRead sr = new SaveRead();
+    
     
     
     public DayPicked(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        jLTask.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {check(e);}
+            public void mouseReleased(MouseEvent e) {check(e);}
+            
+            public void check(MouseEvent e){
+                if(e.isPopupTrigger()){
+                    jLTask.setSelectedIndex(jLTask.locationToIndex(e.getPoint()));
+                    jPopupMenu1.show(jLTask, e.getX(), e.getY());
+                }
+            }
+        });
+        setPopUpMenus();
     }
     
     
@@ -40,16 +58,31 @@ public class DayPicked extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMIOpis = new javax.swing.JMenuItem();
+        jMIEdytuj = new javax.swing.JMenuItem();
+        jMIUsun = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jBDelTask = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLTask = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+
+        jMIOpis.setText("jMenuItem1");
+        jMIOpis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIOpisActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMIOpis);
+
+        jMIEdytuj.setText("jMenuItem2");
+        jPopupMenu1.add(jMIEdytuj);
+
+        jMIUsun.setText("jMenuItem3");
+        jPopupMenu1.add(jMIUsun);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("List");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -63,47 +96,10 @@ public class DayPicked extends javax.swing.JDialog {
             }
         });
 
-        jBDelTask.setBackground(new java.awt.Color(0, 204, 153));
-        jBDelTask.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
-        jBDelTask.setForeground(new java.awt.Color(51, 51, 51));
-        jBDelTask.setText("-");
-        jBDelTask.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBDelTaskActionPerformed(evt);
-            }
-        });
-
         jLTask.setBackground(new java.awt.Color(0, 204, 153));
         jLTask.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLTask.setSelectionBackground(new java.awt.Color(153, 204, 0));
         jScrollPane1.setViewportView(jLTask);
-
-        jButton2.setBackground(new java.awt.Color(0, 204, 153));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Zmień");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setBackground(new java.awt.Color(0, 204, 153));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton3.setText("Opis");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setBackground(new java.awt.Color(0, 204, 153));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4.setText("Wyjdź");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,14 +108,9 @@ public class DayPicked extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(jBDelTask, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(88, 88, 88))
+                .addGap(33, 33, 33)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,24 +118,20 @@ public class DayPicked extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBDelTask)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,42 +139,25 @@ public class DayPicked extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBDelTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDelTaskActionPerformed
-        int index = jLTask.getSelectedIndex();
-        dlm.remove(index);
-        dlm2.remove(index);
-    }//GEN-LAST:event_jBDelTaskActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Task task = showAddTask();
         if(!task.getTitle().equals("") && !task.getDescription().equals("")){
             dlm.addElement(task.getTitle());
             dlm2.addElement(task.getDescription());
+            String dw1 = task.getTitle();
+            String dw2 = task.getDescription();
             jLTask.setModel(dlm);
+            sr.zapisz(data, dw1, dw2);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int poz = jLTask.getSelectedIndex();
-        JOptionPane.showMessageDialog(null,dlm2.get(poz));
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int poz = jLTask.getSelectedIndex();
-        Task task = showAddTask();
-        if(!task.getTitle().equals("") && !task.getDescription().equals("")){
-            dlm.setElementAt(task.getTitle(), poz);
-            dlm2.setElementAt(task.getDescription(), poz);
-            jLTask.setModel(dlm);
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        sr.zapisz(data, dlm, dlm2);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void jMIOpisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOpisActionPerformed
+        
+    }//GEN-LAST:event_jMIOpisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,15 +178,60 @@ public class DayPicked extends javax.swing.JDialog {
         jLTask.setModel(dlm);
     }
     
+    public void setPopUpMenus(){
+        jMIOpis.setText("Opis");
+        jMIEdytuj.setText("Edytuj");
+        jMIUsun.setText("Usuń");
+        
+        jMIOpis.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int poz = jLTask.getSelectedIndex();
+                JOptionPane.showMessageDialog(null,dlm2.get(poz));
+            }
+        });
+        
+        jMIEdytuj.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int poz = jLTask.getSelectedIndex();
+                Task task = showAddTask();
+                String ed1 = (String) dlm.getElementAt(poz);
+                String ed2 = (String) dlm2.getElementAt(poz);
+                if(!task.getTitle().equals("") && !task.getDescription().equals("")){
+                    dlm.setElementAt(task.getTitle(), poz);
+                    dlm2.setElementAt(task.getDescription(), poz);
+                    String new1 = task.getTitle();
+                    String new2 = task.getDescription();
+
+                    jLTask.setModel(dlm);
+                    sr.edytuj(ed1, ed2, new1, new2);
+                }
+            }
+        });
+        
+        jMIUsun.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int index = jLTask.getSelectedIndex();
+                String del1 = (String) dlm.getElementAt(index);
+                String del2 = (String) dlm2.getElementAt(index);
+                sr.usun(data, del1, del2);
+                dlm.remove(index);
+                dlm2.remove(index);
+            }
+        });
+   }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBDelTask;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JList<String> jLTask;
+    private javax.swing.JMenuItem jMIEdytuj;
+    private javax.swing.JMenuItem jMIOpis;
+    private javax.swing.JMenuItem jMIUsun;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

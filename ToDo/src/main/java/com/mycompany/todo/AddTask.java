@@ -35,8 +35,6 @@ public class AddTask extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTFTitle = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTFHour = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTAText = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -44,7 +42,8 @@ public class AddTask extends javax.swing.JDialog {
         jBClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ADD TASK");
+        setTitle("Add Task");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
@@ -55,13 +54,6 @@ public class AddTask extends javax.swing.JDialog {
 
         jTFTitle.setBackground(new java.awt.Color(204, 204, 204));
         jTFTitle.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel2.setText("Godzina");
-
-        jTFHour.setBackground(new java.awt.Color(204, 204, 204));
-        jTFHour.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
 
         jTAText.setBackground(new java.awt.Color(204, 204, 204));
         jTAText.setColumns(20);
@@ -107,22 +99,16 @@ public class AddTask extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jBAddTask, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBClose, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFHour, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
+                            .addComponent(jBClose, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(23, 28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTFTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +136,7 @@ public class AddTask extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBAddTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddTaskActionPerformed
@@ -173,12 +160,10 @@ public class AddTask extends javax.swing.JDialog {
     private javax.swing.JButton jBAddTask;
     private javax.swing.JButton jBClose;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTAText;
-    private javax.swing.JTextField jTFHour;
     private javax.swing.JTextField jTFTitle;
     // End of variables declaration//GEN-END:variables
 }

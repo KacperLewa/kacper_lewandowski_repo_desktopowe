@@ -21,7 +21,7 @@ public class SaveInfo {
         this.d = d;
         this.m = m;
         this.y = y;
-        localdate = LocalDate.of(y,m,d);
+        this.localdate = LocalDate.of(y,m,d);
     }
     
     public SaveInfo(){
